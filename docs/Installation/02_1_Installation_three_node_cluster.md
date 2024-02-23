@@ -1,4 +1,4 @@
-# installation Elasticsearch - Three Node CLuster
+# Installation Elasticsearch - Three Node CLuster
 
 # Umgebung:
 *Link*:                    https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
