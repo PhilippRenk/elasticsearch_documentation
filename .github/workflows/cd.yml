@@ -23,15 +23,3 @@ jobs:
           python-version: 3.x
       - run: pip3 install -r requirements.txt
       - run: mkdocs gh-deploy --force
-      
-  publish_to_github_packages:
-    name: Publish to Github Container registry
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
