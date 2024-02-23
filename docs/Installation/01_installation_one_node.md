@@ -1,12 +1,12 @@
 # Installation Elasticsearch - One Node Cluster
 
 # Umgebung:
-*Link*:             https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
-*OS:*               Centos Stream 9  
-Virtualisierung:    vSphere  
-Server A:           Elasticsearch, Kibana  
-Server B:           Logstash, Filebeat, Python Scripts  
-Voraussetzung:      JAVA JDK Version  
+*Link*:&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
+*OS:*&emsp;&emsp;&emsp;Centos Stream 9  
+Virtualisierung:&emsp;&emsp;&emsp;vSphere  
+Server A:&emsp;&emsp;&emsp;Elasticsearch, Kibana  
+Server B:&emsp;&emsp;&emsp;Logstash, Filebeat, Python Scripts  
+Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  
 
 # Server A
 # Elasticsearch Installation
