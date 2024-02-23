@@ -1,5 +1,4 @@
-# Installation 
-#Elasticsearch 
+# Installation Elasticsearch - One Node Cluster
 
 # Umgebung:
 *Link*:                    https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html
