@@ -1,12 +1,12 @@
 # Installation Elasticsearch - One Node Cluster
 
 # Umgebung:
-*Link*:                    https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
-*OS:*                      Centos Stream 9  
-Virtualisierung:   vSphere  
-Server A:             Elasticsearch, Kibana  
-Server B:             Logstash, Filebeat, Python Scripts  
-Voraussetzung:   JAVA JDK Version  
+*Link*:             https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
+*OS:*               Centos Stream 9  
+Virtualisierung:    vSphere  
+Server A:           Elasticsearch, Kibana  
+Server B:           Logstash, Filebeat, Python Scripts  
+Voraussetzung:      JAVA JDK Version  
 
 # Server A
 # Elasticsearch Installation
@@ -17,7 +17,7 @@ Per Repo-Einbindung Elastic installieren:
 cd /etc/yum.repos.d/
 sudo vim elasticsearch.repo
 ```
-Info: Repo sollte für alle drei Komponenten ausreichen (Elastic, Filebeat, Kibana)
+**Info:** Repo sollte für alle drei Komponenten ausreichen (Elastic, Filebeat, Kibana)
 ```
 [elasticsearch]
 name=Elastic repository for 8.x packages
