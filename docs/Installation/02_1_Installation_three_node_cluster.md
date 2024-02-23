@@ -1,14 +1,14 @@
 # installation Elasticsearch - Three Node CLuster
 
 # Umgebung:
-*Link*:                    https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html
-*OS:*                      Centos Stream 9
-Virtualisierung:   vSphere
-Server A:             Elasticsearch
-Server B:             Elasticsearch
-Server C:             Elasticsearch
-Server D:             Kibana
-Voraussetzung:   JAVA JDK Version
+*Link*:                    https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
+*OS:*                      Centos Stream 9  
+Virtualisierung:   vSphere  
+Server A:             Elasticsearch  
+Server B:             Elasticsearch  
+Server C:             Elasticsearch  
+Server D:             Kibana  
+Voraussetzung:   JAVA JDK Version  
 
 # Server A
 # Elasticsearch Installation
