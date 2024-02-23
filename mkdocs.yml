@@ -1,13 +1,8 @@
 # code: language=yaml
-site_name: Ansible Best Practices
-site_description: Best Practices and Style Guide for Ansible Projects
+site_name: Elasticsearch Documentation
+site_description: Elasticsearch Documentation
 copyright: Copyright &copy; Computacenter 2024
 edit_uri: ""
-extra:
-  social:
-    - icon: fontawesome/brands/docker
-      link: https://github.com/timgrt/Ansible-Best-Practices/pkgs/container/ansible-best-practices
-      name: Docker Container in Github Container Repository
 extra_css:
   - assets/stylesheets/extra.css
   - assets/stylesheets/tables.css
@@ -68,7 +63,7 @@ plugins:
       print_site_banner_template: "docs/assets/pdf/print-banner.tpl"
 theme:
   name: material
-  custom_dir: docs/assets/overrides
+  #cdcustom_dir: 
   icon:
     repo: fontawesome/brands/github
     admonition:
@@ -87,7 +82,7 @@ theme:
     - search.suggest
   palette:
     - scheme: default
-      primary: red
+      primary: blue
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
@@ -97,6 +92,6 @@ theme:
         icon: material/weather-sunny
         name: Switch to light mode
 repo_url: https://github.com/PhilippRenk/elasticsearch_documentation
-repo_name: hilippRenk/elasticsearch_documentation
+repo_name: PhilippRenk/elasticsearch_documentation
 # Navigation definition
 #nav:
