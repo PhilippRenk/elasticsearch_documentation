@@ -438,11 +438,11 @@
 
 <h1 id="installation-elasticsearch-one-node-cluster">Installation Elasticsearch - One Node Cluster</h1>
 <h1 id="umgebung">Umgebung:</h1>
-<p><em>Link</em>:&emsp;&emsp;&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html<br />
-<em>OS:</em>&emsp;&emsp;&emsp;Centos Stream 9<br />
+<p><em>Link</em>:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html<br />
+<em>OS:</em>&emsp;&emsp;&emsp;&emsp;Centos Stream 9<br />
 Virtualisierung:&emsp;&emsp;&emsp;vSphere<br />
-Server A:&emsp;&emsp;&emsp;&emsp;Elasticsearch, Kibana<br />
-Server B:&emsp;&emsp;&emsp;&emsp;Logstash, Filebeat, Python Scripts<br />
+Server A:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch, Kibana<br />
+Server B:&emsp;&emsp;&emsp;&emsp;&emsp;Logstash, Filebeat, Python Scripts<br />
 Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  </p>
 <h1 id="server-a">Server A</h1>
 <h1 id="elasticsearch-installation">Elasticsearch Installation</h1>
@@ -459,7 +459,8 @@ Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  </p>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>enabled=1
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>autorefresh=1
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>type=rpm-md
-</code></pre></div></p>
+</code></pre></div>
+Auf der Kommandozeile folgende Befehle absetzen:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Optional (nur unter RHEL9): update-crypto-policies --set DEFAULT:SHA1
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo dnf install --enablerepo=elasticsearch elasticsearch
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>systemctl daemon-reload
@@ -467,7 +468,7 @@ Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  </p>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>systemctl start elasticsearch
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>firewall-cmd --add-port=9200/tcp --permanent
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>firewall-cmd --reload
-</code></pre></div>
+</code></pre></div></p>
 <p><em>Lesson learned</em> = Es wird ein <em>elastic</em> (Superuser) Passwort nach der Installation im Terminal ausgegeben. Das Passwort ist wichtig für den Zugang zu Elasticsearch. Also am besten speichern. Elasticsearch gibt in der Doku an, das Passwort in eine Umgebungsvariable zu speichern. Erscheint mir unsicher, aber für lokale Instanzen zum ausprobieren sollte es okay sein.  In Elasticsearch 8+ sind die Sicherheitseinstellungen an. Das bedeutet, dass in der elasticsearch.yml mehr Optionen in der eingetragen werden müssen als die initiale Doku zeigt.
 <em>Lesson learned</em> = Entweder über eine .repo Datei oder über ein wget die Installation ermöglichen</p>
 <p><strong>Konfiguration</strong>
@@ -487,41 +488,32 @@ Zusätzlich müssen noch die Pfade für <em>xpack.security.http</em> und <em>xpa
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     http.port: 9200                                               # Muss nicht unbedingt gesetzt werden, da der Default 9300 ist.
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    # elasticsearch.host: [&quot;http://localhost:9200&quot;]
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    # --------------------------------- Discovery ----------------------------------
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    #----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    #
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    # Pass an initial list of hosts to perform discovery when this node is started:
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    # The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    # The following settings, TLS certificates, and keys have been automatically      
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    # generated to configure Elasticsearch security features on 28-08-2023 14:32:16
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    #
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    discovery.seed_hosts: [&quot;127.0.0.1&quot;]
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    #
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    # Bootstrap the cluster using an initial set of master-eligible nodes:
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    #
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    #----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    #
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    # The following settings, TLS certificates, and keys have been automatically      
-<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    # generated to configure Elasticsearch security features on 28-08-2023 14:32:16
-<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    #
-<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    # --------------------------------------------------------------------------------
-<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
-<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    # Enable security features
-<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>
-<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    xpack.security.enabled: true
-<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    xpack.security.enrollment.enabled: true
-<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>
-<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    # Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
-<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    xpack.security.http.ssl:
-<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>      enabled: true
-<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>      keystore.path: /etc/elasticsearch/certs/http.p12
-<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
-<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    # Enable encryption and mutual authentication between cluster nodes
-<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    xpack.security.transport.ssl:
-<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>      enabled: true
-<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>      verification_mode: certificate
-<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>      keystore.path: /etc/elasticsearch/certs/transport.p12
-<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>      truststore.path: /etc/elasticsearch/certs/certs/transport.p12
-<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>    # Create a new cluster with the current node only
-<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>    # Additional nodes can still join the cluster later
-<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>    cluster.initial_master_nodes: [&quot;localhost.localdomain&quot;]
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    # --------------------------------------------------------------------------------
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    # Enable security features
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    xpack.security.enabled: true
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    xpack.security.enrollment.enabled: true
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    # Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    xpack.security.http.ssl:
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>      enabled: true
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>      keystore.path: /etc/elasticsearch/certs/http.p12
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    # Enable encryption and mutual authentication between cluster nodes
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    xpack.security.transport.ssl:
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>      enabled: true
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>      verification_mode: certificate
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>      keystore.path: /etc/elasticsearch/certs/transport.p12
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>      truststore.path: /etc/elasticsearch/certs/certs/transport.p12
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>    # Create a new cluster with the current node only
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>    # Additional nodes can still join the cluster later
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>    cluster.initial_master_nodes: [&quot;localhost.localdomain&quot;]
 </code></pre></div></p>
 <p>Das bei der Installation erschaffenene Zertifikat muss noch per <code>scp</code> an den Server B (auf dem Logstash installiert wird) kopiert werden und in dem Ordner hinterlegt werden, der in der <code>logstash.yml</code> angegeben ist. </p>
 <p><strong>Keystore</strong> 
@@ -555,13 +547,14 @@ Zusätzlich müssen noch die Pfade für <em>xpack.security.http</em> und <em>xpa
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>server.port: 5601
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>server.host: &quot;localhost&quot;                          # Alternative hier eine IP Addresse ohne &quot;&quot; eintragen
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>elasticsearch.hosts: [&quot;https://localhost:9200&quot;]
-</code></pre></div></p>
+</code></pre></div>
+Folgende Befehle absetzen:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>systemctl start kibana
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>systemctl enable kibana
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>firewall-cmd --add-port=5601/tcp --permanent
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>firewall-cmd --reload
-</code></pre></div>
+</code></pre></div></p>
 <p>Einen Enrollment-Token für Kibana erstellen:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token --scope kibana
 </code></pre></div>
@@ -699,7 +692,7 @@ Entscheidend sind die X-Pack bzw SSL -Einstellungen:
 /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf --config.test_and_exit</p>
 <h1 id="install-filebeat">Install Filebeat</h1>
 <p><strong>Installation</strong>
-Stelle sicher, dass Kibana läuft</p>
+Stelle sicher, dass Kibana läuft.</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>dnf install filebeat
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
 <a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>sudo filebeat modules enable system
@@ -744,7 +737,7 @@ Auf jeder Maschine muss eine Filebeat/Beat Konfigurationsdatei angelegt werden.
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 27, 2024</span>
   </span>
 
     
