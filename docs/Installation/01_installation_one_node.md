@@ -1,11 +1,11 @@
 # Installation Elasticsearch - One Node Cluster
 
 # Umgebung:
-*Link*:&emsp;&emsp;&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
-*OS:*&emsp;&emsp;&emsp;Centos Stream 9  
+*Link*:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
+*OS:*&emsp;&emsp;&emsp;&emsp;Centos Stream 9  
 Virtualisierung:&emsp;&emsp;&emsp;vSphere  
-Server A:&emsp;&emsp;&emsp;&emsp;Elasticsearch, Kibana  
-Server B:&emsp;&emsp;&emsp;&emsp;Logstash, Filebeat, Python Scripts  
+Server A:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch, Kibana  
+Server B:&emsp;&emsp;&emsp;&emsp;&emsp;Logstash, Filebeat, Python Scripts  
 Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  
 
 # Server A
@@ -29,7 +29,7 @@ autorefresh=1
 type=rpm-md
 
 ```
-
+Auf der Kommandozeile folgende Befehle absetzen:
 ```
 Optional (nur unter RHEL9): update-crypto-policies --set DEFAULT:SHA1
 sudo dnf install --enablerepo=elasticsearch elasticsearch
@@ -64,15 +64,6 @@ Zusätzlich müssen noch die Pfade für *xpack.security.http* und *xpack.securit
      http.port: 9200                                               # Muss nicht unbedingt gesetzt werden, da der Default 9300 ist.
     # elasticsearch.host: ["http://localhost:9200"]
     
-    # --------------------------------- Discovery ----------------------------------
-    #
-    # Pass an initial list of hosts to perform discovery when this node is started:
-    # The default list of hosts is ["127.0.0.1", "[::1]"]
-    #
-    discovery.seed_hosts: ["127.0.0.1"]
-    #
-    # Bootstrap the cluster using an initial set of master-eligible nodes:
-    #
     #----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
     #
     # The following settings, TLS certificates, and keys have been automatically      
@@ -153,7 +144,7 @@ server.port: 5601
 server.host: "localhost"                          # Alternative hier eine IP Addresse ohne "" eintragen
 elasticsearch.hosts: ["https://localhost:9200"]
 ```
-
+Folgende Befehle absetzen:
 ```
 systemctl start kibana
 systemctl enable kibana
@@ -323,9 +314,10 @@ output {
 
 Konfig testen:
 /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf --config.test_and_exit
+
 # Install Filebeat
 **Installation**
-Stelle sicher, dass Kibana läuft
+Stelle sicher, dass Kibana läuft.
 
 ```
 dnf install filebeat

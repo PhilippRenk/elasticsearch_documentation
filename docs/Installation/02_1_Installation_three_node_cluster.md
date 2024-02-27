@@ -1,13 +1,13 @@
 # Installation Elasticsearch - Three Node CLuster
 
 # Umgebung:
-*Link*:&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
-*OS:*&emsp;&emsp;&emsp;Centos Stream 9  
+*Link*:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
+*OS:*&emsp;&emsp;&emsp;&emsp;&emsp;Centos Stream 9  
 Virtualisierung:&emsp;&emsp;&emsp;vSphere  
-Server A:&emsp;&emsp;&emsp;Elasticsearch  
-Server B:&emsp;&emsp;&emsp;Elasticsearch  
-Server C:&emsp;&emsp;&emsp;Elasticsearch  
-Server D:&emsp;&emsp;&emsp;Kibana  
+Server A:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch  
+Server B:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch  
+Server C:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch  
+Server D:&emsp;&emsp;&emsp;&emsp;&emsp;Kibana  
 Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  
 
 # Server A
@@ -31,7 +31,7 @@ autorefresh=1
 type=rpm-md
 
 ```
-
+Auf der Kommandozeile folgende Befehle absetzen:
 ```
 Optional (nur unter RHEL9): update-crypto-policies --set DEFAULT:SHA1
 sudo dnf install --enablerepo=elasticsearch elasticsearch
@@ -108,7 +108,7 @@ Das bei der Installation erschaffenene Zertifikat muss noch per ``scp`` an den S
 
 
 **Keystore** 
-(Muss ich mir noch genauer Anschauen)
+
 ```
 Nur wenn unter /etc/elasticsearch/ noch nicht enthalten ist:
 /usr/share/elasticsearch/bin/elasticsearch-keystore create
