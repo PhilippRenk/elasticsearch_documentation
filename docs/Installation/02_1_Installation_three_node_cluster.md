@@ -10,6 +10,7 @@ Server C:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch
 Server D:&emsp;&emsp;&emsp;&emsp;&emsp;Kibana  
 Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  
 
+---
 # Server A
 # Elasticsearch Installation
 
@@ -35,11 +36,7 @@ Auf der Kommandozeile folgende Befehle absetzen:
 ```
 Optional (nur unter RHEL9): update-crypto-policies --set DEFAULT:SHA1
 sudo dnf install --enablerepo=elasticsearch elasticsearch
-systemctl daemon-reload
-systemctl enable elasticsearch
-systemctl start elasticsearch
-firewall-cmd --add-port=9200/tcp --permanent
-firewall-cmd --reload
+
 ```
 
 *Lesson learned* = Es wird ein *elastic* (Superuser) Passwort nach der Installation im Terminal ausgegeben. Das Passwort ist wichtig für den Zugang zu Elasticsearch. Also am besten speichern. Elasticsearch gibt in der Doku an, das Passwort in eine Umgebungsvariable zu speichern. Erscheint mir unsicher, aber für lokale Instanzen zum ausprobieren sollte es okay sein.  In Elasticsearch 8+ sind die Sicherheitseinstellungen an. Das bedeutet, dass in der elasticsearch.yml mehr Optionen in der eingetragen werden müssen als die initiale Doku zeigt.
@@ -51,6 +48,7 @@ sudo vim /etc/elasticsearch/elasticsearch.yml
 ```
 
 ```  
+    # ----------------------------Cluster------------------
     
     #-------------------------------Node------------------
     node.name: localhost
@@ -106,6 +104,13 @@ Das bei der Installation erschaffenene Zertifikat muss noch per ``scp`` an den S
 
 *Lesson learned:* Wenn man DNS nutzt, dann muss unter ``cluster.initial_master_nodes`` ein FQDN eingetragen werden. Probleme kann es geben, wenn der Name nachträglich angepasst wird, nachdem man Elastic installiert hat, da dann die Zertifikate falsch sind.
 
+```
+systemctl daemon-reload
+systemctl enable elasticsearch
+systemctl start elasticsearch
+firewall-cmd --add-port=9200/tcp --permanent
+firewall-cmd --reload
+```
 
 **Keystore** 
 
@@ -134,6 +139,7 @@ Erstellt ein Cert(braucht man aber bei einem Server nicht, da Initial Certs mitk
 
 Der Server muss dann rebootet werden.
 
+---
 
 # Kibana Installation 
 Kibana Repo unter ``/etc/yum.repos.d/kibana.repo`` anlegen.
@@ -151,11 +157,11 @@ sudo vim /etc/kibana/kibana.yml
 Entferne die # vor den Einträgen:
 ```
 
-server.port: 5601
+server.port: 5601                                 
 server.host: "localhost"                          # Alternative hier eine IP Addresse ohne "" eintragen
 elasticsearch.hosts: ["https://localhost:9200"]
 ```
-
+Folgende Befehle absetzen:
 ```
 systemctl start kibana
 systemctl enable kibana
@@ -174,6 +180,9 @@ Auf dem Server einen Verifizierungs-Code erstellen und im Browser eingeben:
 ```
 /usr/share/kibana/bin/kibana-verification-code
 ```
+
+---
+
 # Server A
 # Install Logstash
 
@@ -229,6 +238,7 @@ Mit ``/user/share/elasticsearch/bin/elasticsearch_reset_password -u logstash_wri
 Übertragung des Zertifikats per ``scp path/to/http_ca.crt user@IP:/home/user
 Übertragung des SSL-Keys per ``scp path/to/http.p12 user@IP:/home/user
 # Server B
+
 **Installation**
 Installation von Logstash auf dem Server.
 
