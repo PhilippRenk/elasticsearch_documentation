@@ -309,6 +309,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -375,6 +379,48 @@
   
   <span class="md-ellipsis">
     Installation Elasticsearch - Three Node CLuster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation/test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Foldable section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation/useful%20commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful commands
   </span>
   
 
@@ -454,6 +500,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#installation-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Foldable section
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-useful%20commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Useful commands
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -526,12 +590,40 @@ Es sollen Anleitungen, Use Cases, Erklärungen und Best Practices gesammelt werd
                         </h1>
                         <section class="print-page" id="installation-01_installation_one_node"><h1 id="installation-01_installation_one_node-installation-elasticsearch-one-node-cluster">Installation Elasticsearch - One Node Cluster</h1>
 <h1 id="installation-01_installation_one_node-umgebung">Umgebung:</h1>
-<p><em>Link</em>:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html<br />
-<em>OS:</em>&emsp;&emsp;&emsp;&emsp;Centos Stream 9<br />
-Virtualisierung:&emsp;&emsp;&emsp;vSphere<br />
-Server A:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch, Kibana<br />
-Server B:&emsp;&emsp;&emsp;&emsp;&emsp;Logstash, Filebeat, Python Scripts<br />
-Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  </p>
+<table>
+<thead>
+<tr>
+<th>Komponente</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Link</em></td>
+<td>https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html</td>
+</tr>
+<tr>
+<td><em>OS:</em></td>
+<td>Centos Stream 9</td>
+</tr>
+<tr>
+<td>Virtualisierung:</td>
+<td>vSphere</td>
+</tr>
+<tr>
+<td>Server A:</td>
+<td>Elasticsearch, Kibana</td>
+</tr>
+<tr>
+<td>Server B:</td>
+<td>Logstash, Filebeat, Python Scripts</td>
+</tr>
+<tr>
+<td>Voraussetzung:</td>
+<td>JAVA JDK Version</td>
+</tr>
+</tbody>
+</table>
 <h1 id="installation-01_installation_one_node-server-a">Server A</h1>
 <h1 id="installation-01_installation_one_node-elasticsearch-installation">Elasticsearch Installation</h1>
 <p>Per Repo-Einbindung Elastic installieren:</p>
@@ -805,18 +897,52 @@ Auf jeder Maschine muss eine Filebeat/Beat Konfigurationsdatei angelegt werden.
 <p>Möchte man Module nutzen, müssen diese per <code>filebeat module enable MODULNAME</code> angeschaltet werden. Die Module liegen unter <em>/etc/filebeat/modules</em>. Das Kommando benennt die Datei von <em>MODULNAME-disabled.yml</em> in <em>MODULNAME.yml</em></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#installation-01_installation_one_node-__codelineno-25-1"></a>/usr/share/filebeat/bin/filebeat -e -c /etc/filebeat/filebeat.yml -d &quot;publish&quot;
 </code></pre></div></section><section class="print-page" id="installation-02_1_installation_three_node_cluster"><h1 id="installation-02_1_installation_three_node_cluster-installation-elasticsearch-three-node-cluster">Installation Elasticsearch - Three Node CLuster</h1>
-<h1 id="installation-02_1_installation_three_node_cluster-umgebung">Umgebung:</h1>
-<p><em>Link</em>:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html<br />
-<em>OS:</em>&emsp;&emsp;&emsp;&emsp;&emsp;Centos Stream 9<br />
-Virtualisierung:&emsp;&emsp;&emsp;vSphere<br />
-Server A:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch<br />
-Server B:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch<br />
-Server C:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch<br />
-Server D:&emsp;&emsp;&emsp;&emsp;&emsp;Kibana<br />
-Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  </p>
+<h2 id="installation-02_1_installation_three_node_cluster-umgebung">Umgebung:</h2>
+<table>
+<thead>
+<tr>
+<th>Komponente</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Link</em>:</td>
+<td>https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html</td>
+</tr>
+<tr>
+<td><em>OS:</em></td>
+<td>Centos Stream 9</td>
+</tr>
+<tr>
+<td>Virtualisierung:</td>
+<td>vSphere</td>
+</tr>
+<tr>
+<td>Server A:</td>
+<td>Elasticsearch</td>
+</tr>
+<tr>
+<td>Server B</td>
+<td>Elasticsearch</td>
+</tr>
+<tr>
+<td>Server C:</td>
+<td>Elasticsearch</td>
+</tr>
+<tr>
+<td>Server D:</td>
+<td>Kibana</td>
+</tr>
+<tr>
+<td>Voraussetzung:</td>
+<td>JAVA JDK Version</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h1 id="installation-02_1_installation_three_node_cluster-server-a">Server A</h1>
-<h1 id="installation-02_1_installation_three_node_cluster-elasticsearch-installation">Elasticsearch Installation</h1>
+<h2 id="installation-02_1_installation_three_node_cluster-server-a">Server A</h2>
+<h2 id="installation-02_1_installation_three_node_cluster-elasticsearch-installation">Elasticsearch Installation</h2>
 <p>Per Repo-Einbindung Elastic installieren:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#installation-02_1_installation_three_node_cluster-__codelineno-0-1"></a>cd /etc/yum.repos.d/
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#installation-02_1_installation_three_node_cluster-__codelineno-0-2"></a>sudo vim elasticsearch.repo
@@ -840,55 +966,58 @@ Auf der Kommandozeile folgende Befehle absetzen:
 <p><strong>Konfiguration</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#installation-02_1_installation_three_node_cluster-__codelineno-3-1"></a>sudo vim /etc/elasticsearch/elasticsearch.yml
 </code></pre></div></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-1"></a>    # ----------------------------Cluster------------------
+<details class="abstract">
+<summary>Full <code>elasticsearch.yaml</code></summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-1"></a><span class="w">    </span><span class="c1"># ----------------------------Cluster------------------</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-3"></a>    #-------------------------------Node------------------
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-4"></a>    node.name: localhost
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-3"></a><span class="w">    </span><span class="c1">#-------------------------------Node------------------</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-4"></a><span class="w">    </span><span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-5"></a>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-7"></a>    # Set the bind address to a specific IP (IPv4 or IPv6): 
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-8"></a>     network.host: localhost 
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-9"></a>    #
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-10"></a>    # Set a custom port for HTTP: 
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-11"></a>     http.port: 9200
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-12"></a>    # elasticsearch.host: [&quot;http://localhost:9200&quot;]
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-7"></a><span class="w">    </span><span class="c1"># Set the bind address to a specific IP (IPv4 or IPv6): </span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-8"></a><span class="w">     </span><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span><span class="w"> </span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-9"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-10"></a><span class="w">    </span><span class="c1"># Set a custom port for HTTP: </span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-11"></a><span class="w">     </span><span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9200</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-12"></a><span class="w">    </span><span class="c1"># elasticsearch.host: [&quot;http://localhost:9200&quot;]</span>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-13"></a>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-14"></a>    # --------------------------------- Discovery ----------------------------------
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-15"></a>    #
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-16"></a>    # Pass an initial list of hosts to perform discovery when this node is started:
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-17"></a>    # The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-18"></a>    #
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-19"></a>    discovery.seed_hosts: [&quot;127.0.0.1&quot;]
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-20"></a>    #
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-21"></a>    # Bootstrap the cluster using an initial set of master-eligible nodes:
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-22"></a>    #
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-23"></a>    #----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
-<a id="__codelineno-4-24" name="__codelineno-4-24" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-24"></a>    #
-<a id="__codelineno-4-25" name="__codelineno-4-25" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-25"></a>    # The following settings, TLS certificates, and keys have been automatically      
-<a id="__codelineno-4-26" name="__codelineno-4-26" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-26"></a>    # generated to configure Elasticsearch security features on 28-08-2023 14:32:16
-<a id="__codelineno-4-27" name="__codelineno-4-27" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-27"></a>    #
-<a id="__codelineno-4-28" name="__codelineno-4-28" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-28"></a>    # --------------------------------------------------------------------------------
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-14"></a><span class="w">    </span><span class="c1"># --------------------------------- Discovery ----------------------------------</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-15"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-16"></a><span class="w">    </span><span class="c1"># Pass an initial list of hosts to perform discovery when this node is started:</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-17"></a><span class="w">    </span><span class="c1"># The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-18"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-19"></a><span class="w">    </span><span class="nt">discovery.seed_hosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-20"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-21"></a><span class="w">    </span><span class="c1"># Bootstrap the cluster using an initial set of master-eligible nodes:</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-22"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-23"></a><span class="w">    </span><span class="c1">#----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-24"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-25"></a><span class="w">    </span><span class="c1"># The following settings, TLS certificates, and keys have been automatically      </span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-26"></a><span class="w">    </span><span class="c1"># generated to configure Elasticsearch security features on 28-08-2023 14:32:16</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-27"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-28"></a><span class="w">    </span><span class="c1"># --------------------------------------------------------------------------------</span>
 <a id="__codelineno-4-29" name="__codelineno-4-29" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-29"></a>
-<a id="__codelineno-4-30" name="__codelineno-4-30" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-30"></a>    # Enable security features
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-30"></a><span class="w">    </span><span class="c1"># Enable security features</span>
 <a id="__codelineno-4-31" name="__codelineno-4-31" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-31"></a>
-<a id="__codelineno-4-32" name="__codelineno-4-32" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-32"></a>    xpack.security.enabled: true
-<a id="__codelineno-4-33" name="__codelineno-4-33" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-33"></a>    xpack.security.enrollment.enabled: true
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-32"></a><span class="w">    </span><span class="nt">xpack.security.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-33"></a><span class="w">    </span><span class="nt">xpack.security.enrollment.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <a id="__codelineno-4-34" name="__codelineno-4-34" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-34"></a>
-<a id="__codelineno-4-35" name="__codelineno-4-35" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-35"></a>    # Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
-<a id="__codelineno-4-36" name="__codelineno-4-36" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-36"></a>    xpack.security.http.ssl:
-<a id="__codelineno-4-37" name="__codelineno-4-37" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-37"></a>      enabled: true
-<a id="__codelineno-4-38" name="__codelineno-4-38" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-38"></a>      keystore.path: /etc/elasticsearch/certs/http.p12
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-35"></a><span class="w">    </span><span class="c1"># Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-36"></a><span class="w">    </span><span class="nt">xpack.security.http.ssl</span><span class="p">:</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-37"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-38"></a><span class="w">      </span><span class="nt">keystore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/http.p12</span>
 <a id="__codelineno-4-39" name="__codelineno-4-39" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-39"></a>
-<a id="__codelineno-4-40" name="__codelineno-4-40" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-40"></a>    # Enable encryption and mutual authentication between cluster nodes
-<a id="__codelineno-4-41" name="__codelineno-4-41" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-41"></a>    xpack.security.transport.ssl:
-<a id="__codelineno-4-42" name="__codelineno-4-42" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-42"></a>      enabled: true
-<a id="__codelineno-4-43" name="__codelineno-4-43" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-43"></a>      verification_mode: certificate
-<a id="__codelineno-4-44" name="__codelineno-4-44" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-44"></a>      keystore.path: /etc/elasticsearch/certs/transport.p12
-<a id="__codelineno-4-45" name="__codelineno-4-45" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-45"></a>      truststore.path: /etc/elasticsearch/certs/certs/transport.p12
-<a id="__codelineno-4-46" name="__codelineno-4-46" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-46"></a>    # Create a new cluster with the current node only
-<a id="__codelineno-4-47" name="__codelineno-4-47" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-47"></a>    # Additional nodes can still join the cluster later
-<a id="__codelineno-4-48" name="__codelineno-4-48" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-48"></a>    cluster.initial_master_nodes: [&quot;localhost.localdomain&quot;]                         # Wenn DNS genutzt werden soll/wird, muss hier der FQDN des Servers stehen
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-40"></a><span class="w">    </span><span class="c1"># Enable encryption and mutual authentication between cluster nodes</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-41"></a><span class="w">    </span><span class="nt">xpack.security.transport.ssl</span><span class="p">:</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-42"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-43"></a><span class="w">      </span><span class="nt">verification_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">certificate</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-44"></a><span class="w">      </span><span class="nt">keystore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/transport.p12</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-45"></a><span class="w">      </span><span class="nt">truststore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/certs/transport.p12</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-46"></a><span class="w">    </span><span class="c1"># Create a new cluster with the current node only</span>
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-47"></a><span class="w">    </span><span class="c1"># Additional nodes can still join the cluster later</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#installation-02_1_installation_three_node_cluster-__codelineno-4-48"></a><span class="w">    </span><span class="nt">cluster.initial_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;localhost.localdomain&quot;</span><span class="p p-Indicator">]</span><span class="w">                         </span><span class="c1"># Wenn DNS genutzt werden soll/wird, muss hier der FQDN des Servers stehen</span>
 </code></pre></div>
+</details>
 <p>Das bei der Installation erschaffenene Zertifikat muss noch per <code>scp</code> an den Server B (auf dem Logstash installiert wird) kopiert werden und in dem Ordner hinterlegt werden, der in der <code>logstash.yml</code> angegeben ist. </p>
 <p><em>Lesson learned:</em> Wenn man DNS nutzt, dann muss unter <code>cluster.initial_master_nodes</code> ein FQDN eingetragen werden. Probleme kann es geben, wenn der Name nachträglich angepasst wird, nachdem man Elastic installiert hat, da dann die Zertifikate falsch sind.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#installation-02_1_installation_three_node_cluster-__codelineno-5-1"></a>systemctl daemon-reload
@@ -1092,7 +1221,196 @@ Auf jeder Maschine muss eine Filebeat/Beat Konfigurationsdatei angelegt werden.
 <a id="__codelineno-23-10" name="__codelineno-23-10" href="#installation-02_1_installation_three_node_cluster-__codelineno-23-10"></a>output.logstash
 <a id="__codelineno-23-11" name="__codelineno-23-11" href="#installation-02_1_installation_three_node_cluster-__codelineno-23-11"></a>  hosts: [&quot;localhost:5044&quot;]
 </code></pre></div></p>
-<p>Möchte man Module nutzen, müssen diese per <code>filebeat module enable MODULNAME</code> angeschaltet werden. Die Module liegen unter <em>/etc/filebeat/modules</em>. Das Kommando benennt die Datei von <em>MODULNAME-disabled.yml</em> in <em>MODULNAME.yml</em></p></section><h1 class='nav-section-title-end'>Ended: Installation</h1></div>
+<p>Möchte man Module nutzen, müssen diese per <code>filebeat module enable MODULNAME</code> angeschaltet werden. Die Module liegen unter <em>/etc/filebeat/modules</em>. Das Kommando benennt die Datei von <em>MODULNAME-disabled.yml</em> in <em>MODULNAME.yml</em></p></section><section class="print-page" id="installation-test"><h1 id="installation-test-foldable-section">Foldable section</h1>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="installation-test-__tabbed_1_1" name="installation-test-__tabbed_1" type="radio" /><input id="installation-test-__tabbed_1_2" name="installation-test-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="installation-test-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"/></svg></span> inline end</label><label for="installation-test-__tabbed_1_2">seperate code</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition info inline end">
+<p class="admonition-title">Lesson learned</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#installation-test-__codelineno-0-1"></a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#installation-test-__codelineno-0-2"></a>euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#installation-test-__codelineno-0-3"></a>purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<p>Die gesamte <code>elasticsearch.yml</code> ist im folgenden zu sehen. Es gibt viele Vortiele das ganze so darzustellen.   </p>
+</div>
+<div class="tabbed-block">
+<p><details><summary>Full elasticsearch.yml</summary></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#installation-test-__codelineno-1-1"></a><span class="w">    </span><span class="c1"># ----------------------------Cluster------------------</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#installation-test-__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#installation-test-__codelineno-1-3"></a><span class="w">    </span><span class="c1">#-------------------------------Node------------------</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#installation-test-__codelineno-1-4"></a><span class="w">    </span><span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#installation-test-__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#installation-test-__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#installation-test-__codelineno-1-7"></a><span class="w">    </span><span class="c1"># Set the bind address to a specific IP (IPv4 or IPv6): </span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#installation-test-__codelineno-1-8"></a><span class="w">     </span><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span><span class="w"> </span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#installation-test-__codelineno-1-9"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#installation-test-__codelineno-1-10"></a><span class="w">    </span><span class="c1"># Set a custom port for HTTP: </span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#installation-test-__codelineno-1-11"></a><span class="w">     </span><span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9200</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#installation-test-__codelineno-1-12"></a><span class="w">    </span><span class="c1"># elasticsearch.host: [&quot;http://localhost:9200&quot;]</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#installation-test-__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#installation-test-__codelineno-1-14"></a><span class="w">    </span><span class="c1"># --------------------------------- Discovery ----------------------------------</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#installation-test-__codelineno-1-15"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#installation-test-__codelineno-1-16"></a><span class="w">    </span><span class="c1"># Pass an initial list of hosts to perform discovery when this node is started:</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#installation-test-__codelineno-1-17"></a><span class="w">    </span><span class="c1"># The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#installation-test-__codelineno-1-18"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#installation-test-__codelineno-1-19"></a><span class="w">    </span><span class="nt">discovery.seed_hosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#installation-test-__codelineno-1-20"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#installation-test-__codelineno-1-21"></a><span class="w">    </span><span class="c1"># Bootstrap the cluster using an initial set of master-eligible nodes:</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#installation-test-__codelineno-1-22"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#installation-test-__codelineno-1-23"></a><span class="w">    </span><span class="c1">#----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#installation-test-__codelineno-1-24"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#installation-test-__codelineno-1-25"></a><span class="w">    </span><span class="c1"># The following settings, TLS certificates, and keys have been automatically      </span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#installation-test-__codelineno-1-26"></a><span class="w">    </span><span class="c1"># generated to configure Elasticsearch security features on 28-08-2023 14:32:16</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#installation-test-__codelineno-1-27"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#installation-test-__codelineno-1-28"></a><span class="w">    </span><span class="c1"># --------------------------------------------------------------------------------</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#installation-test-__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#installation-test-__codelineno-1-30"></a><span class="w">    </span><span class="c1"># Enable security features</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#installation-test-__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#installation-test-__codelineno-1-32"></a><span class="w">    </span><span class="nt">xpack.security.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#installation-test-__codelineno-1-33"></a><span class="w">    </span><span class="nt">xpack.security.enrollment.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#installation-test-__codelineno-1-34"></a>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#installation-test-__codelineno-1-35"></a><span class="w">    </span><span class="c1"># Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#installation-test-__codelineno-1-36"></a><span class="w">    </span><span class="nt">xpack.security.http.ssl</span><span class="p">:</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#installation-test-__codelineno-1-37"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#installation-test-__codelineno-1-38"></a><span class="w">      </span><span class="nt">keystore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/http.p12</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#installation-test-__codelineno-1-39"></a>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#installation-test-__codelineno-1-40"></a><span class="w">    </span><span class="c1"># Enable encryption and mutual authentication between cluster nodes</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#installation-test-__codelineno-1-41"></a><span class="w">    </span><span class="nt">xpack.security.transport.ssl</span><span class="p">:</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#installation-test-__codelineno-1-42"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#installation-test-__codelineno-1-43"></a><span class="w">      </span><span class="nt">verification_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">certificate</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#installation-test-__codelineno-1-44"></a><span class="w">      </span><span class="nt">keystore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/transport.p12</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#installation-test-__codelineno-1-45"></a><span class="w">      </span><span class="nt">truststore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/certs/transport.p12</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#installation-test-__codelineno-1-46"></a><span class="w">    </span><span class="c1"># Create a new cluster with the current node only</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#installation-test-__codelineno-1-47"></a><span class="w">    </span><span class="c1"># Additional nodes can still join the cluster later</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#installation-test-__codelineno-1-48"></a><span class="w">    </span><span class="c1"># Wenn DNS genutzt werden soll/wird, muss hier der FQDN des Servers stehen</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#installation-test-__codelineno-1-49"></a><span class="w">    </span><span class="nt">cluster.initial_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;localhost.localdomain&quot;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</details>
+</div>
+</div>
+</div></section><section class="print-page" id="installation-useful%20commands"><h1 id="installation-useful%20commands-useful-commands">Useful commands</h1>
+<h2 id="installation-useful%20commands-systemctl"><code>systemctl</code></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="installation-useful%20commands-__tabbed_1_1" name="installation-useful%20commands-__tabbed_1" type="radio" /><input id="installation-useful%20commands-__tabbed_1_2" name="installation-useful%20commands-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="installation-useful%20commands-__tabbed_1_1">restart elastic</label><label for="installation-useful%20commands-__tabbed_1_2">status elastic</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#installation-useful%20commands-__codelineno-0-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>elasticsearch.service
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#installation-useful%20commands-__codelineno-1-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>elasticsearch.service
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="installation-useful%20commands-journalctl"><code>journalctl</code></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="installation-useful%20commands-__tabbed_2_1" name="installation-useful%20commands-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="installation-useful%20commands-__tabbed_2_1">elastic logs</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#installation-useful%20commands-__codelineno-2-1"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>elasticsearch.service
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="installation-useful%20commands-curl"><code>curl</code></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="installation-useful%20commands-__tabbed_3_1" name="installation-useful%20commands-__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="installation-useful%20commands-__tabbed_3_1">elastic with login</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#installation-useful%20commands-__codelineno-3-1"></a>curl<span class="w"> </span>--cacert<span class="w"> </span>config/certs/http_ca.crt<span class="w"> </span>-u<span class="w"> </span>elastic:<span class="nv">$ELASTIC_PASSWORD</span><span class="w"> </span>https://localhost:9200
+</code></pre></div>
+</div>
+</div>
+</div>
+<h1 id="installation-useful%20commands-certificates">Certificates</h1>
+<p>The Fingerprint of the http certificate can be obtained with the command:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#installation-useful%20commands-__codelineno-4-1"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-fingerprint<span class="w"> </span>-sha256<span class="w"> </span>-in<span class="w"> </span>/etc/elasticsearch/certshttp_ca.crt
+</code></pre></div></p>
+<p>The password for the http.p12 keystore can be obtained with:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#installation-useful%20commands-__codelineno-5-1"></a>/usr/share/elasticsearch/bin/elasticsearch-keystore<span class="w"> </span>show<span class="w"> </span>xpack.security.http.ssl.keystore.secure_password
+</code></pre></div></p>
+<p>for the transport.p12:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#installation-useful%20commands-__codelineno-6-1"></a>/usr/share/elasticsearch/bin/elasticsearch-keystore<span class="w"> </span>show<span class="w"> </span>xpack.security.transport.ssl.keystore.secure_password
+</code></pre></div></p>
+<h1 id="installation-useful%20commands-nmcli">nmcli</h1>
+<h2 id="installation-useful%20commands-device-information">Device information</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="installation-useful%20commands-__tabbed_4_1" name="installation-useful%20commands-__tabbed_4" type="radio" /><input id="installation-useful%20commands-__tabbed_4_2" name="installation-useful%20commands-__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="installation-useful%20commands-__tabbed_4_1">show device</label><label for="installation-useful%20commands-__tabbed_4_2">show device (pretty)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#installation-useful%20commands-__codelineno-7-1"></a>nmcli<span class="w"> </span>device<span class="w"> </span>show
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#installation-useful%20commands-__codelineno-8-1"></a>nmcli<span class="w"> </span>-p<span class="w"> </span>device<span class="w"> </span>show
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="installation-useful%20commands-individual-changes">Individual changes</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="installation-useful%20commands-__tabbed_5_1" name="installation-useful%20commands-__tabbed_5" type="radio" /><input id="installation-useful%20commands-__tabbed_5_2" name="installation-useful%20commands-__tabbed_5" type="radio" /><input id="installation-useful%20commands-__tabbed_5_3" name="installation-useful%20commands-__tabbed_5" type="radio" /><input id="installation-useful%20commands-__tabbed_5_4" name="installation-useful%20commands-__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="installation-useful%20commands-__tabbed_5_1">change ip</label><label for="installation-useful%20commands-__tabbed_5_2">change gateway</label><label for="installation-useful%20commands-__tabbed_5_3">change dns</label><label for="installation-useful%20commands-__tabbed_5_4">change DHCP to static</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#installation-useful%20commands-__codelineno-9-1"></a>nmcli<span class="w"> </span>con<span class="w"> </span>mod<span class="w"> </span>enps03<span class="w"> </span>ipv4.addresses<span class="w"> </span><span class="s2">&quot;192.168.2.20/24&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#installation-useful%20commands-__codelineno-10-1"></a>nmcli<span class="w"> </span>con<span class="w"> </span>mod<span class="w"> </span>enps03<span class="w"> </span>ipv4.gateway<span class="w"> </span><span class="s2">&quot;192.168.2.1&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#installation-useful%20commands-__codelineno-11-1"></a>nmcli<span class="w"> </span>con<span class="w"> </span>mod<span class="w"> </span>enps03<span class="w"> </span>ipv4.dns<span class="w"> </span><span class="s2">&quot;8.8.8.8&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#installation-useful%20commands-__codelineno-12-1"></a>nmcli<span class="w"> </span>con<span class="w"> </span>mod<span class="w"> </span>enps03<span class="w"> </span>ipv4.method<span class="w"> </span>manual
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><strong>commit changes</strong></p>
+<details class="info inline end">
+<summary>Info</summary>
+<p>config is written to <code>/etc/sysconfig/network-scripts/ifcfg-enps03</code></p>
+</details>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#installation-useful%20commands-__codelineno-13-1"></a>nmcli<span class="w"> </span>con<span class="w"> </span>up<span class="w"> </span>enps03
+</code></pre></div>
+<h2 id="installation-useful%20commands-nmcli-shell-script">nmcli shell script</h2>
+<details><summary>shell script to update network connection</summary>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#installation-useful%20commands-__codelineno-14-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#installation-useful%20commands-__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#installation-useful%20commands-__codelineno-14-3"></a><span class="c1"># Replace these values with your actual IP address, DNS, and connection method</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#installation-useful%20commands-__codelineno-14-4"></a><span class="c1">#!/bin/bash</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#installation-useful%20commands-__codelineno-14-5"></a>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#installation-useful%20commands-__codelineno-14-6"></a><span class="c1"># Set your variables</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#installation-useful%20commands-__codelineno-14-7"></a><span class="nv">connection_name</span><span class="o">=</span><span class="s2">&quot;YourConnectionName&quot;</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#installation-useful%20commands-__codelineno-14-8"></a><span class="nv">new_ip_address</span><span class="o">=</span><span class="s2">&quot;192.168.1.2&quot;</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#installation-useful%20commands-__codelineno-14-9"></a><span class="nv">new_dns</span><span class="o">=</span><span class="s2">&quot;8.8.8.8&quot;</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#installation-useful%20commands-__codelineno-14-10"></a><span class="nv">new_method</span><span class="o">=</span><span class="s2">&quot;manual&quot;</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#installation-useful%20commands-__codelineno-14-11"></a>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#installation-useful%20commands-__codelineno-14-12"></a><span class="c1"># Check if NetworkManager is installed</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#installation-useful%20commands-__codelineno-14-13"></a><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>nmcli<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#installation-useful%20commands-__codelineno-14-14"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;NetworkManager (nmcli) not found. Please install it.&quot;</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#installation-useful%20commands-__codelineno-14-15"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#installation-useful%20commands-__codelineno-14-16"></a><span class="k">fi</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#installation-useful%20commands-__codelineno-14-17"></a>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#installation-useful%20commands-__codelineno-14-18"></a><span class="c1"># Check if the connection exists</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#installation-useful%20commands-__codelineno-14-19"></a><span class="k">if</span><span class="w"> </span>!<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>show<span class="w"> </span>--active<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$connection_name</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#installation-useful%20commands-__codelineno-14-20"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Connection &#39;</span><span class="nv">$connection_name</span><span class="s2">&#39; not found or not active.&quot;</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#installation-useful%20commands-__codelineno-14-21"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#installation-useful%20commands-__codelineno-14-22"></a><span class="k">fi</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#installation-useful%20commands-__codelineno-14-23"></a>
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#installation-useful%20commands-__codelineno-14-24"></a><span class="c1"># Update the connection settings</span>
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#installation-useful%20commands-__codelineno-14-25"></a>nmcli<span class="w"> </span>connection<span class="w"> </span>modify<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$connection_name</span><span class="s2">&quot;</span><span class="w"> </span>ipv4.address<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$new_ip_address</span><span class="s2">&quot;</span><span class="w"> </span>
+<a id="__codelineno-14-26" name="__codelineno-14-26" href="#installation-useful%20commands-__codelineno-14-26"></a>nmcli<span class="w"> </span>connection<span class="w"> </span>modify<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$connection_name</span><span class="s2">&quot;</span><span class="w"> </span>ipv4.dns<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$new_dns</span><span class="s2">&quot;</span><span class="w"> </span>
+<a id="__codelineno-14-27" name="__codelineno-14-27" href="#installation-useful%20commands-__codelineno-14-27"></a>nmcli<span class="w"> </span>connection<span class="w"> </span>modify<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$connection_name</span><span class="s2">&quot;</span><span class="w"> </span>ipv4.method<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$new_method</span><span class="s2">&quot;</span>
+<a id="__codelineno-14-28" name="__codelineno-14-28" href="#installation-useful%20commands-__codelineno-14-28"></a>
+<a id="__codelineno-14-29" name="__codelineno-14-29" href="#installation-useful%20commands-__codelineno-14-29"></a><span class="c1"># Restart the connection for changes to take effect</span>
+<a id="__codelineno-14-30" name="__codelineno-14-30" href="#installation-useful%20commands-__codelineno-14-30"></a>nmcli<span class="w"> </span>connection<span class="w"> </span>down<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$connection_name</span><span class="s2">&quot;</span>
+<a id="__codelineno-14-31" name="__codelineno-14-31" href="#installation-useful%20commands-__codelineno-14-31"></a>nmcli<span class="w"> </span>connection<span class="w"> </span>up<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$connection_name</span><span class="s2">&quot;</span>
+<a id="__codelineno-14-32" name="__codelineno-14-32" href="#installation-useful%20commands-__codelineno-14-32"></a>
+<a id="__codelineno-14-33" name="__codelineno-14-33" href="#installation-useful%20commands-__codelineno-14-33"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Connection &#39;</span><span class="nv">$connection_name</span><span class="s2">&#39; updated successfully.&quot;</span>
+</code></pre></div>
+</details></section><h1 class='nav-section-title-end'>Ended: Installation</h1></div>
 
 
 

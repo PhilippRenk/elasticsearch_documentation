@@ -14,6 +14,8 @@
         <link rel="prev" href="../01_installation_one_node/">
       
       
+        <link rel="next" href="../test/">
+      
       
       <link rel="icon" href="../../assets/images/computacenter-logo.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.8">
@@ -307,6 +309,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -377,6 +383,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Installation Elasticsearch - Three Node CLuster
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -387,6 +404,96 @@
 
       </a>
       
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#umgebung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Umgebung:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server A
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elasticsearch Installation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Foldable section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../useful%20commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful commands
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -421,6 +528,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#umgebung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Umgebung:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server A
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elasticsearch Installation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -435,18 +577,52 @@
 
 
 <h1 id="installation-elasticsearch-three-node-cluster">Installation Elasticsearch - Three Node CLuster</h1>
-<h1 id="umgebung">Umgebung:</h1>
-<p><em>Link</em>:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html<br />
-<em>OS:</em>&emsp;&emsp;&emsp;&emsp;&emsp;Centos Stream 9<br />
-Virtualisierung:&emsp;&emsp;&emsp;vSphere<br />
-Server A:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch<br />
-Server B:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch<br />
-Server C:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch<br />
-Server D:&emsp;&emsp;&emsp;&emsp;&emsp;Kibana<br />
-Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  </p>
+<h2 id="umgebung">Umgebung:</h2>
+<table>
+<thead>
+<tr>
+<th>Komponente</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Link</em>:</td>
+<td>https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html</td>
+</tr>
+<tr>
+<td><em>OS:</em></td>
+<td>Centos Stream 9</td>
+</tr>
+<tr>
+<td>Virtualisierung:</td>
+<td>vSphere</td>
+</tr>
+<tr>
+<td>Server A:</td>
+<td>Elasticsearch</td>
+</tr>
+<tr>
+<td>Server B</td>
+<td>Elasticsearch</td>
+</tr>
+<tr>
+<td>Server C:</td>
+<td>Elasticsearch</td>
+</tr>
+<tr>
+<td>Server D:</td>
+<td>Kibana</td>
+</tr>
+<tr>
+<td>Voraussetzung:</td>
+<td>JAVA JDK Version</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h1 id="server-a">Server A</h1>
-<h1 id="elasticsearch-installation">Elasticsearch Installation</h1>
+<h2 id="server-a">Server A</h2>
+<h2 id="elasticsearch-installation">Elasticsearch Installation</h2>
 <p>Per Repo-Einbindung Elastic installieren:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cd /etc/yum.repos.d/
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo vim elasticsearch.repo
@@ -470,55 +646,58 @@ Auf der Kommandozeile folgende Befehle absetzen:
 <p><strong>Konfiguration</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo vim /etc/elasticsearch/elasticsearch.yml
 </code></pre></div></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    # ----------------------------Cluster------------------
+<details class="abstract">
+<summary>Full <code>elasticsearch.yaml</code></summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="c1"># ----------------------------Cluster------------------</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    #-------------------------------Node------------------
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    node.name: localhost
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">#-------------------------------Node------------------</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    # Set the bind address to a specific IP (IPv4 or IPv6): 
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>     network.host: localhost 
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    #
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    # Set a custom port for HTTP: 
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>     http.port: 9200
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    # elasticsearch.host: [&quot;http://localhost:9200&quot;]
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="c1"># Set the bind address to a specific IP (IPv4 or IPv6): </span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">     </span><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span><span class="w"> </span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="c1"># Set a custom port for HTTP: </span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">     </span><span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9200</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="c1"># elasticsearch.host: [&quot;http://localhost:9200&quot;]</span>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    # --------------------------------- Discovery ----------------------------------
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    #
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    # Pass an initial list of hosts to perform discovery when this node is started:
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    # The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    #
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    discovery.seed_hosts: [&quot;127.0.0.1&quot;]
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    #
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    # Bootstrap the cluster using an initial set of master-eligible nodes:
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    #
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    #----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
-<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    #
-<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    # The following settings, TLS certificates, and keys have been automatically      
-<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    # generated to configure Elasticsearch security features on 28-08-2023 14:32:16
-<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    #
-<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    # --------------------------------------------------------------------------------
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="c1"># --------------------------------- Discovery ----------------------------------</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="c1"># Pass an initial list of hosts to perform discovery when this node is started:</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="c1"># The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="nt">discovery.seed_hosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="c1"># Bootstrap the cluster using an initial set of master-eligible nodes:</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="c1">#----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="c1"># The following settings, TLS certificates, and keys have been automatically      </span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">    </span><span class="c1"># generated to configure Elasticsearch security features on 28-08-2023 14:32:16</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="c1">#</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">    </span><span class="c1"># --------------------------------------------------------------------------------</span>
 <a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>
-<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    # Enable security features
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">    </span><span class="c1"># Enable security features</span>
 <a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
-<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    xpack.security.enabled: true
-<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    xpack.security.enrollment.enabled: true
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span><span class="nt">xpack.security.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="nt">xpack.security.enrollment.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
-<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>    # Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
-<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>    xpack.security.http.ssl:
-<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>      enabled: true
-<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>      keystore.path: /etc/elasticsearch/certs/http.p12
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">    </span><span class="c1"># Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">    </span><span class="nt">xpack.security.http.ssl</span><span class="p">:</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">      </span><span class="nt">keystore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/http.p12</span>
 <a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>
-<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>    # Enable encryption and mutual authentication between cluster nodes
-<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>    xpack.security.transport.ssl:
-<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>      enabled: true
-<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>      verification_mode: certificate
-<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>      keystore.path: /etc/elasticsearch/certs/transport.p12
-<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>      truststore.path: /etc/elasticsearch/certs/certs/transport.p12
-<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>    # Create a new cluster with the current node only
-<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>    # Additional nodes can still join the cluster later
-<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>    cluster.initial_master_nodes: [&quot;localhost.localdomain&quot;]                         # Wenn DNS genutzt werden soll/wird, muss hier der FQDN des Servers stehen
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="w">    </span><span class="c1"># Enable encryption and mutual authentication between cluster nodes</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="w">    </span><span class="nt">xpack.security.transport.ssl</span><span class="p">:</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="w">      </span><span class="nt">verification_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">certificate</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="w">      </span><span class="nt">keystore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/transport.p12</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="w">      </span><span class="nt">truststore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/certs/transport.p12</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a><span class="w">    </span><span class="c1"># Create a new cluster with the current node only</span>
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a><span class="w">    </span><span class="c1"># Additional nodes can still join the cluster later</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a><span class="w">    </span><span class="nt">cluster.initial_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;localhost.localdomain&quot;</span><span class="p p-Indicator">]</span><span class="w">                         </span><span class="c1"># Wenn DNS genutzt werden soll/wird, muss hier der FQDN des Servers stehen</span>
 </code></pre></div>
+</details>
 <p>Das bei der Installation erschaffenene Zertifikat muss noch per <code>scp</code> an den Server B (auf dem Logstash installiert wird) kopiert werden und in dem Ordner hinterlegt werden, der in der <code>logstash.yml</code> angegeben ist. </p>
 <p><em>Lesson learned:</em> Wenn man DNS nutzt, dann muss unter <code>cluster.initial_master_nodes</code> ein FQDN eingetragen werden. Probleme kann es geben, wenn der Name nachträglich angepasst wird, nachdem man Elastic installiert hat, da dann die Zertifikate falsch sind.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>systemctl daemon-reload
@@ -743,7 +922,7 @@ Auf jeder Maschine muss eine Filebeat/Beat Konfigurationsdatei angelegt werden.
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 12, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2024</span>
   </span>
 
     
