@@ -3,3 +3,4 @@ site
 cache
 .cache
 .cache/*
+test.md

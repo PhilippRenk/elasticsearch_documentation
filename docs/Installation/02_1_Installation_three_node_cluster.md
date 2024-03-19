@@ -1,18 +1,20 @@
 # Installation Elasticsearch - Three Node CLuster
 
-# Umgebung:
-*Link*:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html  
-*OS:*&emsp;&emsp;&emsp;&emsp;&emsp;Centos Stream 9  
-Virtualisierung:&emsp;&emsp;&emsp;vSphere  
-Server A:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch  
-Server B:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch  
-Server C:&emsp;&emsp;&emsp;&emsp;&emsp;Elasticsearch  
-Server D:&emsp;&emsp;&emsp;&emsp;&emsp;Kibana  
-Voraussetzung:&emsp;&emsp;&emsp;JAVA JDK Version  
+## Umgebung:
+| Komponente | Name |
+| ---------- | ---- |
+| *Link*: | https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html |
+| *OS:* | Centos Stream 9 | 
+| Virtualisierung: | vSphere  
+| Server A: | Elasticsearch | 
+| Server B | Elasticsearch | 
+| Server C: | Elasticsearch | 
+| Server D: | Kibana | 
+| Voraussetzung: | JAVA JDK Version |
 
 ---
-# Server A
-# Elasticsearch Installation
+## Server A
+## Elasticsearch Installation
 
 Per Repo-Einbindung Elastic installieren:
 
@@ -47,59 +49,60 @@ sudo dnf install --enablerepo=elasticsearch elasticsearch
 sudo vim /etc/elasticsearch/elasticsearch.yml
 ```
 
-```  
-    # ----------------------------Cluster------------------
+??? abstract "Full `elasticsearch.yaml`"
+    ```yaml
+        # ----------------------------Cluster------------------
+        
+        #-------------------------------Node------------------
+        node.name: localhost
+        
+        
+        # Set the bind address to a specific IP (IPv4 or IPv6): 
+         network.host: localhost 
+        #
+        # Set a custom port for HTTP: 
+         http.port: 9200
+        # elasticsearch.host: ["http://localhost:9200"]
+        
+        # --------------------------------- Discovery ----------------------------------
+        #
+        # Pass an initial list of hosts to perform discovery when this node is started:
+        # The default list of hosts is ["127.0.0.1", "[::1]"]
+        #
+        discovery.seed_hosts: ["127.0.0.1"]
+        #
+        # Bootstrap the cluster using an initial set of master-eligible nodes:
+        #
+        #----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
+        #
+        # The following settings, TLS certificates, and keys have been automatically      
+        # generated to configure Elasticsearch security features on 28-08-2023 14:32:16
+        #
+        # --------------------------------------------------------------------------------
+        
+        # Enable security features
     
-    #-------------------------------Node------------------
-    node.name: localhost
+        xpack.security.enabled: true
+        xpack.security.enrollment.enabled: true
+        
+        # Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
+        xpack.security.http.ssl:
+          enabled: true
+          keystore.path: /etc/elasticsearch/certs/http.p12
+        
+        # Enable encryption and mutual authentication between cluster nodes
+        xpack.security.transport.ssl:
+          enabled: true
+          verification_mode: certificate
+          keystore.path: /etc/elasticsearch/certs/transport.p12
+          truststore.path: /etc/elasticsearch/certs/certs/transport.p12
+        # Create a new cluster with the current node only
+        # Additional nodes can still join the cluster later
+        cluster.initial_master_nodes: ["localhost.localdomain"]                         # Wenn DNS genutzt werden soll/wird, muss hier der FQDN des Servers stehen
     
     
-    # Set the bind address to a specific IP (IPv4 or IPv6): 
-     network.host: localhost 
-    #
-    # Set a custom port for HTTP: 
-     http.port: 9200
-    # elasticsearch.host: ["http://localhost:9200"]
+    ```
     
-    # --------------------------------- Discovery ----------------------------------
-    #
-    # Pass an initial list of hosts to perform discovery when this node is started:
-    # The default list of hosts is ["127.0.0.1", "[::1]"]
-    #
-    discovery.seed_hosts: ["127.0.0.1"]
-    #
-    # Bootstrap the cluster using an initial set of master-eligible nodes:
-    #
-    #----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
-    #
-    # The following settings, TLS certificates, and keys have been automatically      
-    # generated to configure Elasticsearch security features on 28-08-2023 14:32:16
-    #
-    # --------------------------------------------------------------------------------
-    
-    # Enable security features
-
-    xpack.security.enabled: true
-    xpack.security.enrollment.enabled: true
-    
-    # Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
-    xpack.security.http.ssl:
-      enabled: true
-      keystore.path: /etc/elasticsearch/certs/http.p12
-    
-    # Enable encryption and mutual authentication between cluster nodes
-    xpack.security.transport.ssl:
-      enabled: true
-      verification_mode: certificate
-      keystore.path: /etc/elasticsearch/certs/transport.p12
-      truststore.path: /etc/elasticsearch/certs/certs/transport.p12
-    # Create a new cluster with the current node only
-    # Additional nodes can still join the cluster later
-    cluster.initial_master_nodes: ["localhost.localdomain"]                         # Wenn DNS genutzt werden soll/wird, muss hier der FQDN des Servers stehen
-
-
-```
-
 Das bei der Installation erschaffenene Zertifikat muss noch per ``scp`` an den Server B (auf dem Logstash installiert wird) kopiert werden und in dem Ordner hinterlegt werden, der in der ``logstash.yml`` angegeben ist. 
 
 *Lesson learned:* Wenn man DNS nutzt, dann muss unter ``cluster.initial_master_nodes`` ein FQDN eingetragen werden. Probleme kann es geben, wenn der Name nachträglich angepasst wird, nachdem man Elastic installiert hat, da dann die Zertifikate falsch sind.
