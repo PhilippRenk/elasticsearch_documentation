@@ -11,23 +11,25 @@
       
       
       
+        <link rel="prev" href="../01_1_installation_elasticsearch/">
       
-        <link rel="next" href="Installation/00_useful%20commands/">
+      
+        <link rel="next" href="../01_3_installation_logstash/">
       
       
-      <link rel="icon" href="assets/images/computacenter-logo.png">
+      <link rel="icon" href="../../assets/images/computacenter-logo.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.8">
     
     
       
-        <title>Elasticsearch Documentation</title>
+        <title>Installation Kibana - Elasticsearch Documentation</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
   
@@ -52,32 +54,32 @@
         
         
         
-        <link rel="stylesheet" href="assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="css/print-site-enum-headings1.css">
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
     
-      <link rel="stylesheet" href="css/print-site-enum-headings2.css">
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
     
-      <link rel="stylesheet" href="css/print-site-enum-headings3.css">
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
     
-      <link rel="stylesheet" href="css/print-site-enum-headings4.css">
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
     
-      <link rel="stylesheet" href="css/print-site-enum-headings5.css">
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
     
-      <link rel="stylesheet" href="css/print-site-enum-headings6.css">
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
     
-      <link rel="stylesheet" href="css/print-site.css">
+      <link rel="stylesheet" href="../../css/print-site.css">
     
-      <link rel="stylesheet" href="css/print-site-material.css">
+      <link rel="stylesheet" href="../../css/print-site-material.css">
     
-      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="assets/stylesheets/tables.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/tables.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -103,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#willkommen-auf-der-elasticsearch-dokumentation" class="md-skip">
+        <a href="#installation-kibana" class="md-skip">
           Skip to content
         </a>
       
@@ -119,9 +121,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Elasticsearch Documentation" class="md-header__button md-logo" aria-label="Elasticsearch Documentation" data-md-component="logo">
+    <a href="../.." title="Elasticsearch Documentation" class="md-header__button md-logo" aria-label="Elasticsearch Documentation" data-md-component="logo">
       
-  <img src="assets/images/computacenter-logo-white.png" alt="logo">
+  <img src="../../assets/images/computacenter-logo-white.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -138,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Willkommen auf der Elasticsearch Dokumentation
+              Installation Kibana
             
           </span>
         </div>
@@ -253,9 +255,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Elasticsearch Documentation" class="md-nav__button md-logo" aria-label="Elasticsearch Documentation" data-md-component="logo">
+    <a href="../.." title="Elasticsearch Documentation" class="md-nav__button md-logo" aria-label="Elasticsearch Documentation" data-md-component="logo">
       
-  <img src="assets/images/computacenter-logo-white.png" alt="logo">
+  <img src="../../assets/images/computacenter-logo-white.png" alt="logo">
 
     </a>
     Elasticsearch Documentation
@@ -279,19 +281,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -300,7 +293,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -309,8 +301,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -335,12 +329,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -354,7 +348,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Installation
@@ -368,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Installation/00_useful%20commands/" class="md-nav__link">
+      <a href="../00_useful%20commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -389,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Installation/01_1_installation_elasticsearch/" class="md-nav__link">
+      <a href="../01_1_installation_elasticsearch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -407,10 +401,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="Installation/01_2_Installation_kibana/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Installation Kibana
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -419,6 +433,94 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#konfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konfiguration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konfiguration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      systemctl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      firewall-cmd
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enroll
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enroll">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Browser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detatched" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detatched
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -431,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Installation/01_3_installation_logstash/" class="md-nav__link">
+      <a href="../01_3_installation_logstash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -452,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Installation/01_4_installation_beats/" class="md-nav__link">
+      <a href="../01_4_installation_beats/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -473,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Installation/02_1_Installation_three_node_cluster/" class="md-nav__link">
+      <a href="../02_1_Installation_three_node_cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -494,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Installation/test/" class="md-nav__link">
+      <a href="../test/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -537,6 +639,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#konfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konfiguration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konfiguration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      systemctl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      firewall-cmd
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enroll
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enroll">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Browser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detatched" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detatched
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -550,10 +726,63 @@
                   
 
 
-<h1 id="willkommen-auf-der-elasticsearch-dokumentation">Willkommen auf der Elasticsearch Dokumentation</h1>
-<p>Dieses Dokument/Seite soll Informationen für das Arbeiten mit Elasticsearch bereitstellen. 
-Es sollen Anleitungen, Use Cases, Erklärungen und Best Practices gesammelt werden. </p>
-<p>Diese Seite wird laufend aktualisiert.</p>
+<h1 id="installation-kibana">Installation Kibana</h1>
+<p>Remember to include repo on rpm - same as <a data-preview="data-preview" href="../01_1_installation_elasticsearch/#download">elastic installation</a></p>
+<div class="highlight"><span class="filename">Install</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>kibana
+</code></pre></div>
+<h2 id="konfiguration">Konfiguration</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/kibana/kibana.yml
+</code></pre></div>
+<div class="highlight"><span class="filename">change following values</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">server.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5601</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">server.host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;localhost&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">elasticsearch.hosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;https://localhost:9200&quot;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<h3 id="systemctl">systemctl</h3>
+<p>Start the kibana-server with systemctl, enable it on startup.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">reload</label><label for="__tabbed_1_2">enable</label><label for="__tabbed_1_3">start</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>systemctl<span class="w"> </span>daemon-reload
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>kibana.service
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>systemctl<span class="w"> </span>start<span class="w"> </span>kibana.service
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h3 id="firewall-cmd">firewall-cmd</h3>
+<p>Enable the connection to the elasticsearch-server by adding a port to the firewall <em>(standard: <code>9200</code>)</em>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">add-port</label><label for="__tabbed_2_2">reload</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>firewall-cmd --add-port=5601/tcp --permanent
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>firewall-cmd --reload
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="enroll">Enroll</h2>
+<p>To enroll kibana automatically generate an enrollment token on the elastic server. You have to utilize the <code>elasticsearch-create-enrollment-token</code> binary. </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token<span class="w"> </span>--scope<span class="w"> </span>kibana
+</code></pre></div>
+<h3 id="browser">Browser</h3>
+<p>Log into the server with a browser under port 5601 e.g. (http://localhost:5601) and pass the enrollment token. After that a verification code ist requestet. Generate it on the elastic Server with the <code>kibana-verification-code</code> binary.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>/usr/share/kibana/bin/kibana-verification-code
+</code></pre></div>
+<h3 id="detatched">Detatched</h3>
+<p>You can run a browser detatched enrollment with the <code>kibana-setup</code> binary.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>/usr/share/kibana/bin/kibana-setup<span class="w"> </span>--enrollment-token
+</code></pre></div>
 
 
 
@@ -610,20 +839,20 @@ Es sollen Anleitungen, Use Cases, Erklärungen und Best Practices gesammelt werd
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant.preview", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "search.suggest"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant.preview", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
-        <script src="js/print-site.js"></script>
+        <script src="../../js/print-site.js"></script>
       
-        <script src="assets/javascripts/extra/refresh-on-toggle-dark-light.js"></script>
+        <script src="../../assets/javascripts/extra/refresh-on-toggle-dark-light.js"></script>
       
-        <script src="assets/external/unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+        <script src="../../assets/external/unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="assets/javascripts/extra/tablesort.js"></script>
+        <script src="../../assets/javascripts/extra/tablesort.js"></script>
       
-        <script src="assets/external/unpkg.com/mermaid@10.7.0/dist/mermaid.min.js"></script>
+        <script src="../../assets/external/unpkg.com/mermaid@10.7.0/dist/mermaid.min.js"></script>
       
     
   </body>
