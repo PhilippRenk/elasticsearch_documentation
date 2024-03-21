@@ -1,6 +1,4 @@
-# Installation Elasticsearch - One Node Cluster
-
-# Umgebung:
+# Installation Elasticsearch 
 
 | Komponente | Name |
 | --- | --- |
@@ -11,118 +9,178 @@
 |Server B: | Logstash, Filebeat, Python Scripts | 
 |Voraussetzung: | JAVA JDK Version | 
 
-# Server A
-# Elasticsearch Installation
 
-Per Repo-Einbindung Elastic installieren:
+## Download
 
-```
-cd /etc/yum.repos.d/
-sudo vim elasticsearch.repo
-```
-**Info:** Repo sollte für alle drei Komponenten ausreichen (Elastic, Filebeat, Kibana)
-```
-[elasticsearch]
-name=Elastic repository for 8.x packages
-baseurl=https://artifacts.elastic.co/packages/8.x/yum
-gpgcheck=1
-gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
-enabled=1
-autorefresh=1
-type=rpm-md
+For `yum` or `dnf` create `elasticsearch.repo` file and include the repo information.
 
+```sh title="repo filepath"
+vim /etc/yum.repos.d/elasticsearch.repo
 ```
+
+!!! abstract "`elasticsearch.repo`"
+    ``` conf
+    [elasticsearch]
+    name=Elastic repository for 8.x packages
+    baseurl=https://artifacts.elastic.co/packages/8.x/yum
+    gpgcheck=1
+    gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    enabled=1
+    autorefresh=1
+    type=rpm-md
+    ```
+    :material-information-outline: Repo sollte für alle drei Komponenten ausreichen (Elastic, Filebeat, Kibana)
+
+
+## Installation
 Auf der Kommandozeile folgende Befehle absetzen:
-```
-Optional (nur unter RHEL9): update-crypto-policies --set DEFAULT:SHA1
-sudo dnf install --enablerepo=elasticsearch elasticsearch
-systemctl daemon-reload
-systemctl enable elasticsearch
-systemctl start elasticsearch
-firewall-cmd --add-port=9200/tcp --permanent
-firewall-cmd --reload
-```
 
-*Lesson learned* = Es wird ein *elastic* (Superuser) Passwort nach der Installation im Terminal ausgegeben. Das Passwort ist wichtig für den Zugang zu Elasticsearch. Also am besten speichern. Elasticsearch gibt in der Doku an, das Passwort in eine Umgebungsvariable zu speichern. Erscheint mir unsicher, aber für lokale Instanzen zum ausprobieren sollte es okay sein.  In Elasticsearch 8+ sind die Sicherheitseinstellungen an. Das bedeutet, dass in der elasticsearch.yml mehr Optionen in der eingetragen werden müssen als die initiale Doku zeigt.
-*Lesson learned* = Entweder über eine .repo Datei oder über ein wget die Installation ermöglichen
+### `dnf`
+=== "crypto policy :material-information-outline:{ title="Only required for RHEL9" }"
 
-**Konfiguration**
-```
-sudo vim /etc/elasticsearch/elasticsearch.yml
-```
+    ``` sh 
+    update-crypto-policies --set DEFAULT:SHA1
+    ```
 
-Entferne die # vor den Einträgen:
-    network.host: localhost 
-Zusätzlich müssen noch die Pfade für *xpack.security.http* und *xpack.security.transport* gesetzt werden.
-```  
-    
+=== "install"
+
+    ``` sh
+    dnf install --enablerepo=elasticsearch elasticsearch
+    ```
+
+
+### `systemctl`
+Start the elasticsearch server with systemctl, enable it on startup.
+
+=== "reload"
+
+    ```sh
+    systemctl daemon-reload
+    ```
+
+=== "enable"
+
+    ``` sh
+    systemctl enable elasticsearch
+    ```
+
+=== "start"
+
+    ```sh
+    systemctl start elasticsearch
+    ```
+---
+### `firewall-cmd`
+Enable the connection to the elasticsearch-server by adding a port to the firewall *(standard: `9200`)*.
+
+=== "add-port"
+
+    ```
+    firewall-cmd --add-port=9200/tcp --permanent
+    ```
+
+=== "reload"
+
+    ```
+    firewall-cmd --reload
+    ```
+---
+
+???+ warning "Password output on installation" 
+    Es wird ein *elastic* (Superuser) Passwort nach der Installation im Terminal ausgegeben. Das Passwort ist wichtig für den Zugang zu Elasticsearch. Also am besten speichern. Elasticsearch gibt in der Doku an, das Passwort in eine Umgebungsvariable zu speichern. Erscheint mir unsicher, aber für lokale Instanzen zum ausprobieren sollte es okay sein.  In Elasticsearch 8+ sind die Sicherheitseinstellungen an. Das bedeutet, dass in der elasticsearch.yml mehr Optionen in der eingetragen werden müssen als die initiale Doku zeigt.
+??? info "Lesson learned" 
+    Entweder über eine .repo Datei oder über ein wget die Installation ermöglichen
+
+## Configuration
+
+```sh title="config path"
+vim /etc/elasticsearch/elasticsearch.yml
+```
+Configure the following elements:
+
+- **node.name**: The name which is displayed for this server at the cluster
+- **network.host**: Define the IP under which the server is found
+- **http.port**: Standard Port is 9200 
+
+??? abstract "`elasticsearch.yml`"
+
+    ```yaml hl_lines="2 6 9 27 33 34" 
     #-------------------------------Node------------------
     node.name: localhost
-    
-    
+
+
     # Set the bind address to a specific IP (IPv4 or IPv6): 
-     network.host: localhost 
+        network.host: localhost 
     #
     # Set a custom port for HTTP: 
-     http.port: 9200                                               # Muss nicht unbedingt gesetzt werden, da der Default 9300 ist.
+        http.port: 9200  
     # elasticsearch.host: ["http://localhost:9200"]
-    
+
     #----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
     #
     # The following settings, TLS certificates, and keys have been automatically      
     # generated to configure Elasticsearch security features on 28-08-2023 14:32:16
     #
     # --------------------------------------------------------------------------------
-    
+
     # Enable security features
 
     xpack.security.enabled: true
     xpack.security.enrollment.enabled: true
-    
+
     # Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
     xpack.security.http.ssl:
-      enabled: true
-      keystore.path: /etc/elasticsearch/certs/http.p12
-    
+        enabled: true
+        keystore.path: /etc/elasticsearch/certs/http.p12
+
     # Enable encryption and mutual authentication between cluster nodes
     xpack.security.transport.ssl:
-      enabled: true
-      verification_mode: certificate
-      keystore.path: /etc/elasticsearch/certs/transport.p12
-      truststore.path: /etc/elasticsearch/certs/certs/transport.p12
+        enabled: true
+        verification_mode: certificate
+        keystore.path: /etc/elasticsearch/certs/transport.p12
+        truststore.path: /etc/elasticsearch/certs/certs/transport.p12
     # Create a new cluster with the current node only
     # Additional nodes can still join the cluster later
     cluster.initial_master_nodes: ["localhost.localdomain"]
+    ```
 
-
-```
-
+## Security 
 Das bei der Installation erschaffenene Zertifikat muss noch per ``scp`` an den Server B (auf dem Logstash installiert wird) kopiert werden und in dem Ordner hinterlegt werden, der in der ``logstash.yml`` angegeben ist. 
 
-**Keystore** 
-(Muss ich mir noch genauer Anschauen)
-```
-Nur wenn unter /etc/elasticsearch/ noch nicht enthalten ist:
-/usr/share/elasticsearch/bin/elasticsearch-keystore create
+=== "Create certificate"
 
-Passwort immer neu setzen:
-/usr/share/elasticsearch/bin/elasticsearch-keystore passwd
+    ``` sh 
+    # Nur wenn unter /etc/elasticsearch/ noch nicht enthalten ist:
+    /usr/share/elasticsearch/bin/elasticsearch-keystore create
+    ```
 
-Passwort für den Http.Keystore abfragen. Dies ist für die Konfiguration von Logstash wichtig.
-/usr/share/elasticsearch/bin/elasticsearch-keystore show xpack.security.http.ssl.keystore.secure_password
-```
+=== "Reset password automatically:"
 
-Um eine CA zu erstellen, muss folgender Befehl eingegeben werden:
+    ``` sh
+    /usr/share/elasticsearch/bin/elasticsearch-keystore passwd
+    ```
 
-```
-Erstellt eine CA:
-/usr/share/elasticsearch/bin/elasticsearch-certutil ca
+=== "show keystore password" 
 
-Erstellt ein Cert(braucht man aber bei einem Server nicht, da Initial Certs mitkommen):
-/usr/share/elasticsearch/bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12
-```
+    ``` sh
+    /usr/share/elasticsearch/bin/elasticsearch-keystore show xpack.security.http.ssl.keystore.secure_password
+    ```
 
-*Lesson learned:* In Elastic 8 oder neu wird SSL im Default aktiviert
+=== "create CA"
+
+    ```sh
+    /usr/share/elasticsearch/bin/elasticsearch-certutil ca
+    ```
+
+=== "create certificate"
+
+    ``` sh
+    /usr/share/elasticsearch/bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12
+    ```
+
+??? info "Lesson learned"
+    In Elastic 8 oder neu wird SSL im Default aktiviert
+
 
 Der Server muss dann rebootet werden.
 

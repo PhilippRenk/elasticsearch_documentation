@@ -1,5 +1,7 @@
 # Useful commands
 
+:octicons-file-code-16:
+
 ## `systemctl`
 === "restart elastic"
 

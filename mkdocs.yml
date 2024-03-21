@@ -49,7 +49,7 @@ plugins:
   - autolinks:
   - git-revision-date-localized:
     # This plugin needs a Git executable and the .git folder
-      enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
+      enabled: !ENV [ENABLED_GIT_REVISION_DATE, False]
       fallback_to_build_date: true
       locale: en
   - privacy
@@ -68,12 +68,14 @@ theme:
     repo: fontawesome/brands/github
     admonition:
       example: octicons/terminal-24
+      abstract: octicons/file-code-24
   logo: assets/images/computacenter-logo-white.png
   language: en
   favicon: assets/images/computacenter-logo.png
   features:
     - content.code.annotate
     - content.code.copy
+    - content.tooltips
     - navigation.indexes
     - navigation.instant
     - navigation.sections
