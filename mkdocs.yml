@@ -42,6 +42,7 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+
 plugins:
   - search:
       lang: de
@@ -73,6 +74,7 @@ theme:
   language: en
   favicon: assets/images/computacenter-logo.png
   features:
+    - navigation.instant.preview
     - content.code.annotate
     - content.code.copy
     - content.tooltips
