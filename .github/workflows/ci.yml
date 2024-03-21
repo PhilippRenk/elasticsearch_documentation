@@ -12,5 +12,8 @@ jobs:
     name: Lint markdown files
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with: 
+          fetch-depth: 0
       - uses: avto-dev/markdown-lint@v1.5.0
