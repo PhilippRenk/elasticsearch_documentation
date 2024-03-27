@@ -320,8 +320,6 @@
       
         
       
-        
-      
     
     
     
@@ -481,27 +479,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Installation/test/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Foldable section
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -603,15 +580,6 @@
   <a href="#installation-02_1_installation_three_node_cluster" class="md-nav__link">
     <span class="md-ellipsis">
       7. Installation Elasticsearch - Three Node CLuster
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-test" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Foldable section
     </span>
   </a>
   
@@ -1532,75 +1500,7 @@ Auf jeder Maschine muss eine Filebeat/Beat Konfigurationsdatei angelegt werden.
 <a id="__codelineno-23-10" name="__codelineno-23-10" href="#installation-02_1_installation_three_node_cluster-__codelineno-23-10"></a>output.logstash
 <a id="__codelineno-23-11" name="__codelineno-23-11" href="#installation-02_1_installation_three_node_cluster-__codelineno-23-11"></a>  hosts: [&quot;localhost:5044&quot;]
 </code></pre></div></p>
-<p>Möchte man Module nutzen, müssen diese per <code>filebeat module enable MODULNAME</code> angeschaltet werden. Die Module liegen unter <em>/etc/filebeat/modules</em>. Das Kommando benennt die Datei von <em>MODULNAME-disabled.yml</em> in <em>MODULNAME.yml</em></p></section><section class="print-page" id="installation-test"><h1 id="installation-test-foldable-section">Foldable section</h1>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="installation-test-__tabbed_1_1" name="installation-test-__tabbed_1" type="radio" /><input id="installation-test-__tabbed_1_2" name="installation-test-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="installation-test-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"/></svg></span> inline end</label><label for="installation-test-__tabbed_1_2">seperate code</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="admonition info inline end">
-<p class="admonition-title">Lesson learned</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#installation-test-__codelineno-0-1"></a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#installation-test-__codelineno-0-2"></a>euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#installation-test-__codelineno-0-3"></a>purus auctor massa, nec semper lorem quam in massa.
-</code></pre></div>
-</div>
-<p>Die gesamte <code>elasticsearch.yml</code> ist im folgenden zu sehen. Es gibt viele Vortiele das ganze so darzustellen.   </p>
-</div>
-<div class="tabbed-block">
-<p><details><summary>Full elasticsearch.yml</summary></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#installation-test-__codelineno-1-1"></a><span class="w">    </span><span class="c1"># ----------------------------Cluster------------------</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#installation-test-__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#installation-test-__codelineno-1-3"></a><span class="w">    </span><span class="c1">#-------------------------------Node------------------</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#installation-test-__codelineno-1-4"></a><span class="w">    </span><span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#installation-test-__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#installation-test-__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#installation-test-__codelineno-1-7"></a><span class="w">    </span><span class="c1"># Set the bind address to a specific IP (IPv4 or IPv6): </span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#installation-test-__codelineno-1-8"></a><span class="w">     </span><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span><span class="w"> </span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#installation-test-__codelineno-1-9"></a><span class="w">    </span><span class="c1">#</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#installation-test-__codelineno-1-10"></a><span class="w">    </span><span class="c1"># Set a custom port for HTTP: </span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#installation-test-__codelineno-1-11"></a><span class="w">     </span><span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9200</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#installation-test-__codelineno-1-12"></a><span class="w">    </span><span class="c1"># elasticsearch.host: [&quot;http://localhost:9200&quot;]</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#installation-test-__codelineno-1-13"></a>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#installation-test-__codelineno-1-14"></a><span class="w">    </span><span class="c1"># --------------------------------- Discovery ----------------------------------</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#installation-test-__codelineno-1-15"></a><span class="w">    </span><span class="c1">#</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#installation-test-__codelineno-1-16"></a><span class="w">    </span><span class="c1"># Pass an initial list of hosts to perform discovery when this node is started:</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#installation-test-__codelineno-1-17"></a><span class="w">    </span><span class="c1"># The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#installation-test-__codelineno-1-18"></a><span class="w">    </span><span class="c1">#</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#installation-test-__codelineno-1-19"></a><span class="w">    </span><span class="nt">discovery.seed_hosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#installation-test-__codelineno-1-20"></a><span class="w">    </span><span class="c1">#</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#installation-test-__codelineno-1-21"></a><span class="w">    </span><span class="c1"># Bootstrap the cluster using an initial set of master-eligible nodes:</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#installation-test-__codelineno-1-22"></a><span class="w">    </span><span class="c1">#</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#installation-test-__codelineno-1-23"></a><span class="w">    </span><span class="c1">#----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#installation-test-__codelineno-1-24"></a><span class="w">    </span><span class="c1">#</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#installation-test-__codelineno-1-25"></a><span class="w">    </span><span class="c1"># The following settings, TLS certificates, and keys have been automatically      </span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#installation-test-__codelineno-1-26"></a><span class="w">    </span><span class="c1"># generated to configure Elasticsearch security features on 28-08-2023 14:32:16</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#installation-test-__codelineno-1-27"></a><span class="w">    </span><span class="c1">#</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#installation-test-__codelineno-1-28"></a><span class="w">    </span><span class="c1"># --------------------------------------------------------------------------------</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#installation-test-__codelineno-1-29"></a>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#installation-test-__codelineno-1-30"></a><span class="w">    </span><span class="c1"># Enable security features</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#installation-test-__codelineno-1-31"></a>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#installation-test-__codelineno-1-32"></a><span class="w">    </span><span class="nt">xpack.security.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#installation-test-__codelineno-1-33"></a><span class="w">    </span><span class="nt">xpack.security.enrollment.enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#installation-test-__codelineno-1-34"></a>
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#installation-test-__codelineno-1-35"></a><span class="w">    </span><span class="c1"># Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#installation-test-__codelineno-1-36"></a><span class="w">    </span><span class="nt">xpack.security.http.ssl</span><span class="p">:</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#installation-test-__codelineno-1-37"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#installation-test-__codelineno-1-38"></a><span class="w">      </span><span class="nt">keystore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/http.p12</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#installation-test-__codelineno-1-39"></a>
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#installation-test-__codelineno-1-40"></a><span class="w">    </span><span class="c1"># Enable encryption and mutual authentication between cluster nodes</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#installation-test-__codelineno-1-41"></a><span class="w">    </span><span class="nt">xpack.security.transport.ssl</span><span class="p">:</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42" href="#installation-test-__codelineno-1-42"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43" href="#installation-test-__codelineno-1-43"></a><span class="w">      </span><span class="nt">verification_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">certificate</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44" href="#installation-test-__codelineno-1-44"></a><span class="w">      </span><span class="nt">keystore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/transport.p12</span>
-<a id="__codelineno-1-45" name="__codelineno-1-45" href="#installation-test-__codelineno-1-45"></a><span class="w">      </span><span class="nt">truststore.path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/elasticsearch/certs/certs/transport.p12</span>
-<a id="__codelineno-1-46" name="__codelineno-1-46" href="#installation-test-__codelineno-1-46"></a><span class="w">    </span><span class="c1"># Create a new cluster with the current node only</span>
-<a id="__codelineno-1-47" name="__codelineno-1-47" href="#installation-test-__codelineno-1-47"></a><span class="w">    </span><span class="c1"># Additional nodes can still join the cluster later</span>
-<a id="__codelineno-1-48" name="__codelineno-1-48" href="#installation-test-__codelineno-1-48"></a><span class="w">    </span><span class="c1"># Wenn DNS genutzt werden soll/wird, muss hier der FQDN des Servers stehen</span>
-<a id="__codelineno-1-49" name="__codelineno-1-49" href="#installation-test-__codelineno-1-49"></a><span class="w">    </span><span class="nt">cluster.initial_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;localhost.localdomain&quot;</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-</details>
-</div>
-</div>
-</div></section><h1 class='nav-section-title-end'>Ended: Installation</h1></div>
+<p>Möchte man Module nutzen, müssen diese per <code>filebeat module enable MODULNAME</code> angeschaltet werden. Die Module liegen unter <em>/etc/filebeat/modules</em>. Das Kommando benennt die Datei von <em>MODULNAME-disabled.yml</em> in <em>MODULNAME.yml</em></p></section><h1 class='nav-section-title-end'>Ended: Installation</h1></div>
 
 
 
