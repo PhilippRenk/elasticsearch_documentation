@@ -1,8 +1,8 @@
 
 # Install Logstash
 
-## User anlegen:
-In Kibana (auf Server A) muss unter Management -> Dev Tools per API ein User ``logstash_writer`` und die Rolle ``logstash_writer_role`` erstellt werden.
+## Create User:
+In Kibana (on Server A), a user ``logstash_writer`` and the role ``logstash_writer_role`` must be created via API under Management -> Dev Tools.
 
 ```
 POST /_security/role/logstash_write_role
@@ -47,23 +47,23 @@ POST /_security/user/logstash_writer
 }
 ```
 
-Mit `/user/share/elasticsearch/bin/elasticsearch_reset_password -u logstash_writer` muss das Passwort neu gesetzt werden und dann per Dev Tools in Kibana gesetzt werden.
+The password must be reset with `/user/share/elasticsearch/bin/elasticsearch_reset_password -u logstash_writer` and then set via Dev Tools in Kibana.
 
-## Zertifikate übertragen
+## Create certificate
 
-Übertragung des Zertifikats per
+Transfer of the certificate via
 ```bash
 scp path/to/http_ca.crt user@IP:/home/user
 ```
 
-Übertragung des SSL-Keys per 
+Transmission of the SSL key via
 ```bash
 scp path/to/http.p12 user@IP:/home/user
 ```
 
 # Server B
 **Installation**
-Installation von Logstash auf dem Server.
+Installation of Logstash on the server.
 
 ```
 vim /etc/yum.repos.d/logstash.repo
@@ -84,21 +84,21 @@ Logstash über die Kommandozeile installieren und Zertifikate in ein Verzeichnis
 # Installation
 dnf install logstash
 
-# Erstellung des Ordners für die Zertifikate und der Kopiervorgang
+# Creation of the folder for the certificates and the copying process
 mkdir /etc/logstash/certs
 cp /home/user/http* /etc/logstash/certs/
 
-# Änderung der Rechte
+# Change of rights
 chown -R logstash:logstash /etc/logstash/
 
 ```
 **Konfiguration**
-Die Konfigurations-Datei von Logstash bearbeiten
+Edit the Logstash configuration file
 ```
 vim /etc/logstash/logstash.yml
 ```
-Entscheidend sind die X-Pack bzw SSL -Einstellungen:
-(Für den logstash_system User muss entweder das Passwort auf dem Elasticserver neu generiert werden oder man kennt es schon)
+The X-Pack or SSL settings are decisive:
+(For the logstash_system user, either the password must be regenerated on the Elasticserver or you already know it)
 ```
 # X-Pack Management
 xpack.management.enabled: true
@@ -110,12 +110,12 @@ xpack.management.elasticsearch.ssl.certificate: "/etc/logstash/certs/http_ca.crt
 xpack.management.elasticsearch.ssl.key: "/etc/logstash/certs/http.p12"
 ```
 
-Es muss eine Konfigurationsdatei für die Pipeline von Filebeat -> Logstash -> Elasticsearch konfiguriert werden.
+A configuration file must be configured for the pipeline from Filebeat -> Logstash -> Elasticsearch.
 ```
 vim /etc/logstash/conf.d/logstash.conf
 ```
-*Lesson learned:* Die Conf-Dateien müssen unter conf.d stehen
-*Lesson learned*: SSL ist bei Logstash auch ein "Problem".
+*Lesson learned:* The conf files must be located under conf.d
+*Lesson learned*: SSL is also a "problem" with Logstash.
 ```
 
 input {
@@ -124,7 +124,7 @@ input {
      }
 }
 
-filter {    #<---- Hier kann der Filter definiert werden
+filter {    #<---- The filter can be defined here
   grok {
     match => {}
   }
@@ -138,7 +138,7 @@ output {
   elasticsearch {
     hosts => ["https://IP:9200"]
     index => "%{[@metadata][beat]}-%{[@metadata][version]}"
-    cacert => '/etc/logstash/certs/http_ca_crt'    #<--- Kann natürlich Variable sein
+    cacert => '/etc/logstash/certs/http_ca_crt'    #<--- Can be variable
     user => "logstash_writer"
     password => "PASSWORD"
     ssl => true
@@ -146,5 +146,5 @@ output {
 }
 ```
 
-Konfig testen:
+Testing config:
 /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf --config.test_and_exit

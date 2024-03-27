@@ -33,7 +33,7 @@ vim /etc/yum.repos.d/elasticsearch.repo
 
 
 ## Installation
-Auf der Kommandozeile folgende Befehle absetzen:
+Use the following commands on the commandline:
 
 ### dnf
 === "crypto policy :material-information-outline:{ title="Only required for RHEL9" }"
@@ -145,7 +145,7 @@ Configure the following elements:
     ```
 
 ## Security 
-Das bei der Installation erschaffenene Zertifikat muss noch per ``scp`` an den Server B (auf dem Logstash installiert wird) kopiert werden und in dem Ordner hinterlegt werden, der in der ``logstash.yml`` angegeben ist. 
+The certificate created during the installation must still be copied to server B (on which Logstash is installed) via ``scp`` and stored in the folder specified in ``logstash.yml``. 
 
 === "Create certificate"
 
@@ -182,4 +182,4 @@ Das bei der Installation erschaffenene Zertifikat muss noch per ``scp`` an den S
     In Elastic 8 oder neu wird SSL im Default aktiviert
 
 
-Der Server muss dann rebootet werden.
+Reboot the server!
