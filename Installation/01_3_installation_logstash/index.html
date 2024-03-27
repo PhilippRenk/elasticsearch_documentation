@@ -543,18 +543,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#user-anlegen" class="md-nav__link">
+  <a href="#create-user" class="md-nav__link">
     <span class="md-ellipsis">
-      User anlegen:
+      Create User:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#zertifikate-ubertragen" class="md-nav__link">
+  <a href="#create-certificate" class="md-nav__link">
     <span class="md-ellipsis">
-      Zertifikate übertragen
+      Create certificate
     </span>
   </a>
   
@@ -647,18 +647,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#user-anlegen" class="md-nav__link">
+  <a href="#create-user" class="md-nav__link">
     <span class="md-ellipsis">
-      User anlegen:
+      Create User:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#zertifikate-ubertragen" class="md-nav__link">
+  <a href="#create-certificate" class="md-nav__link">
     <span class="md-ellipsis">
-      Zertifikate übertragen
+      Create certificate
     </span>
   </a>
   
@@ -680,8 +680,8 @@
 
 
 <h1 id="install-logstash">Install Logstash</h1>
-<h2 id="user-anlegen">User anlegen:</h2>
-<p>In Kibana (auf Server A) muss unter Management -&gt; Dev Tools per API ein User <code>logstash_writer</code> und die Rolle <code>logstash_writer_role</code> erstellt werden.</p>
+<h2 id="create-user">Create User:</h2>
+<p>In Kibana (on Server A), a user <code>logstash_writer</code> and the role <code>logstash_writer_role</code> must be created via API under Management -&gt; Dev Tools.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>POST /_security/role/logstash_write_role
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>{
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    &quot;cluster&quot;: [
@@ -723,17 +723,17 @@
 <a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>  &quot;enabled&quot;: true
 <a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>}
 </code></pre></div>
-<p>Mit <code>/user/share/elasticsearch/bin/elasticsearch_reset_password -u logstash_writer</code> muss das Passwort neu gesetzt werden und dann per Dev Tools in Kibana gesetzt werden.</p>
-<h2 id="zertifikate-ubertragen">Zertifikate übertragen</h2>
-<p>Übertragung des Zertifikats per
+<p>The password must be reset with <code>/user/share/elasticsearch/bin/elasticsearch_reset_password -u logstash_writer</code> and then set via Dev Tools in Kibana.</p>
+<h2 id="create-certificate">Create certificate</h2>
+<p>Transfer of the certificate via
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>scp<span class="w"> </span>path/to/http_ca.crt<span class="w"> </span>user@IP:/home/user
 </code></pre></div></p>
-<p>Übertragung des SSL-Keys per 
+<p>Transmission of the SSL key via
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp<span class="w"> </span>path/to/http.p12<span class="w"> </span>user@IP:/home/user
 </code></pre></div></p>
 <h1 id="server-b">Server B</h1>
 <p><strong>Installation</strong>
-Installation von Logstash auf dem Server.</p>
+Installation of Logstash on the server.</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>vim /etc/yum.repos.d/logstash.repo
 </code></pre></div>
 Repo-Datei: logstash.repo
@@ -750,19 +750,19 @@ Logstash über die Kommandozeile installieren und Zertifikate in ein Verzeichnis
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># Installation
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>dnf install logstash
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a># Erstellung des Ordners für die Zertifikate und der Kopiervorgang
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a># Creation of the folder for the certificates and the copying process
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>mkdir /etc/logstash/certs
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>cp /home/user/http* /etc/logstash/certs/
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a># Änderung der Rechte
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a># Change of rights
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>chown -R logstash:logstash /etc/logstash/
 </code></pre></div>
 <strong>Konfiguration</strong>
-Die Konfigurations-Datei von Logstash bearbeiten
+Edit the Logstash configuration file
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>vim /etc/logstash/logstash.yml
 </code></pre></div>
-Entscheidend sind die X-Pack bzw SSL -Einstellungen:
-(Für den logstash_system User muss entweder das Passwort auf dem Elasticserver neu generiert werden oder man kennt es schon)
+The X-Pack or SSL settings are decisive:
+(For the logstash_system user, either the password must be regenerated on the Elasticserver or you already know it)
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># X-Pack Management
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>xpack.management.enabled: true
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>xpack.management.elasticsearch.username: logstash_system
@@ -772,18 +772,18 @@ Entscheidend sind die X-Pack bzw SSL -Einstellungen:
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>xpack.management.elasticsearch.ssl.certificate: &quot;/etc/logstash/certs/http_ca.crt&quot;
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>xpack.management.elasticsearch.ssl.key: &quot;/etc/logstash/certs/http.p12&quot;
 </code></pre></div></p>
-<p>Es muss eine Konfigurationsdatei für die Pipeline von Filebeat -&gt; Logstash -&gt; Elasticsearch konfiguriert werden.
+<p>A configuration file must be configured for the pipeline from Filebeat -&gt; Logstash -&gt; Elasticsearch.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>vim /etc/logstash/conf.d/logstash.conf
 </code></pre></div>
-<em>Lesson learned:</em> Die Conf-Dateien müssen unter conf.d stehen
-<em>Lesson learned</em>: SSL ist bei Logstash auch ein "Problem".
+<em>Lesson learned:</em> The conf files must be located under conf.d
+<em>Lesson learned</em>: SSL is also a "problem" with Logstash.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>input {
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  beats {
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>     port =&gt; 5044
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>     }
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>}
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>filter {    #&lt;---- Hier kann der Filter definiert werden
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>filter {    #&lt;---- The filter can be defined here
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>  grok {
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    match =&gt; {}
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>  }
@@ -797,14 +797,14 @@ Entscheidend sind die X-Pack bzw SSL -Einstellungen:
 <a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>  elasticsearch {
 <a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>    hosts =&gt; [&quot;https://IP:9200&quot;]
 <a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>    index =&gt; &quot;%{[@metadata][beat]}-%{[@metadata][version]}&quot;
-<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>    cacert =&gt; &#39;/etc/logstash/certs/http_ca_crt&#39;    #&lt;--- Kann natürlich Variable sein
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>    cacert =&gt; &#39;/etc/logstash/certs/http_ca_crt&#39;    #&lt;--- Can be variable
 <a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>    user =&gt; &quot;logstash_writer&quot;
 <a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>    password =&gt; &quot;PASSWORD&quot;
 <a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>    ssl =&gt; true
 <a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>  }
 <a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>}
 </code></pre></div></p>
-<p>Konfig testen:
+<p>Testing config:
 /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf --config.test_and_exit</p>
 
 
