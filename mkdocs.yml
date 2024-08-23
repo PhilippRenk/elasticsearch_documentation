@@ -54,6 +54,7 @@ plugins:
       fallback_to_build_date: true
       locale: en
   - privacy
+  - awesome-pages
   - print-site:
     # This plugin should always defined as the last one
       add_cover_page: true
@@ -97,5 +98,16 @@ theme:
         name: Switch to light mode
 repo_url: https://github.com/PhilippRenk/elasticsearch_documentation
 repo_name: PhilippRenk/elasticsearch_documentation
-# Navigation definition
-#nav:
+
+  # Navigation definition
+  # nav:
+  #   - Home: 'index.md'
+  #   - 'Installation':
+  #     - 'useful commands': 'Installation\00_useful commands.md'
+  #     - as a Service:
+  #       - 'es (service)': 'Installation\01_1_installation_elasticsearch.md'
+  #       - 'kb (service)': 'Installation\01_2_installation_kibana.md'
+  #       - 'ls (service)': 'Installation\01_3_installation_logstash.md'
+  #       - 'beats (service)': 'Installation\01_4_installation_beats.md'
+  #       - 'three node cluster': 'Installation\01_5_installation_three_node_cluster.md'
+  #     - 'docker compose': 'Installation\01_6_installation_dockercompose.md'

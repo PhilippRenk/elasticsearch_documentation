@@ -1,0 +1,4 @@
+nav:
+  - useful_commands.md
+  - as_service
+  - 01_6_installation_dockercompose.md
