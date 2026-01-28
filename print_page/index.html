@@ -310,6 +310,8 @@
       
         
       
+        
+      
     
     
     
@@ -355,6 +357,27 @@
   
   <span class="md-ellipsis">
     Aggregation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Elasticsearch/Mapping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping
   </span>
   
 
@@ -612,6 +635,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#elasticsearch-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Mapping
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -630,7 +662,7 @@
           <li class="md-nav__item">
   <a href="#installation-00_useful%20commands" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Useful commands
+      4. Useful commands
     </span>
   </a>
   
@@ -639,7 +671,7 @@
           <li class="md-nav__item">
   <a href="#installation-01_1_installation_elasticsearch" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Installation Elasticsearch
+      5. Installation Elasticsearch
     </span>
   </a>
   
@@ -648,7 +680,7 @@
           <li class="md-nav__item">
   <a href="#installation-01_2_installation_kibana" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Installation Kibana
+      6. Installation Kibana
     </span>
   </a>
   
@@ -657,7 +689,7 @@
           <li class="md-nav__item">
   <a href="#installation-01_3_installation_logstash" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Install Logstash
+      7. Install Logstash
     </span>
   </a>
   
@@ -666,7 +698,7 @@
           <li class="md-nav__item">
   <a href="#installation-01_4_installation_beats" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Install Filebeat
+      8. Install Filebeat
     </span>
   </a>
   
@@ -675,7 +707,7 @@
           <li class="md-nav__item">
   <a href="#installation-02_1_installation_three_node_cluster" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Installation Elasticsearch - Three Node CLuster
+      9. Installation Elasticsearch - Three Node CLuster
     </span>
   </a>
   
@@ -752,7 +784,17 @@ Es sollen Anleitungen, Use Cases, Erklärungen und Best Practices gesammelt werd
                             Elasticsearch <a class='headerlink' href='#section-elasticsearch' title='Permanent link'>↵</a>
                         </h1>
                         <section class="print-page" id="elasticsearch-aggregation"><h1 id="elasticsearch-aggregation-aggregation">Aggregation</h1>
-<p>(Hier Aggregation erklären + Useful Commands)</p></section><h1 class='nav-section-title-end'>Ended: Elasticsearch</h1>
+<p>(Hier Aggregation erklären + Useful Commands)</p></section><section class="print-page" id="elasticsearch-mapping"><h1 id="elasticsearch-mapping-mapping">Mapping</h1>
+<p>With mapping you can determine how a document is defined and the fields it contains are stored and indexed.
+Basically your document contains a collection of fields, which have their own data types. With mapping you can determine the data type of the fields.</p>
+<p>There are two mappings: <em>dynamic</em> and <em>explicit</em> mapping.</p>
+<hr />
+<h2 id="elasticsearch-mapping-dynamic-mapping">Dynamic mapping</h2>
+<p>Elasticsearch use dynamic mapping automatically, when you don't use explicit mapping. </p>
+<h2 id="elasticsearch-mapping-explicit-mapping">Explicit mapping</h2>
+<p>This mapping allows you to choose how to define the mapping definitions. You can decide which fields contains which data types. 
+Explicit mapping is useful, because you know your data best.
+Field mappings can be described when you create a new index and also can be added to existing indices. </p></section><h1 class='nav-section-title-end'>Ended: Elasticsearch</h1>
                         <h1 class='nav-section-title' id='section-installation'>
                             Installation <a class='headerlink' href='#section-installation' title='Permanent link'>↵</a>
                         </h1>

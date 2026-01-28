@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../Aggregation/">
       
       
-        <link rel="next" href="../Mapping/">
+        <link rel="next" href="../../Installation/00_useful%20commands/">
       
       
       <link rel="icon" href="../../assets/images/computacenter-logo.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Aggregation - Elasticsearch Documentation</title>
+        <title>Mapping - Elasticsearch Documentation</title>
       
     
     
@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aggregation" class="md-skip">
+        <a href="#mapping" class="md-skip">
           Skip to content
         </a>
       
@@ -140,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aggregation
+              Mapping
             
           </span>
         </div>
@@ -349,6 +349,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aggregation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aggregation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -361,29 +382,18 @@
         
       
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
   
   <span class="md-ellipsis">
-    Aggregation
+    Mapping
   </span>
   
 
-      </a>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Mapping/" class="md-nav__link">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -392,6 +402,46 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic mapping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicit mapping
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -613,6 +663,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic mapping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicit mapping
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -626,8 +702,17 @@
                   
 
 
-<h1 id="aggregation">Aggregation</h1>
-<p>(Hier Aggregation erklären + Useful Commands)</p>
+<h1 id="mapping">Mapping</h1>
+<p>With mapping you can determine how a document is defined and the fields it contains are stored and indexed.
+Basically your document contains a collection of fields, which have their own data types. With mapping you can determine the data type of the fields.</p>
+<p>There are two mappings: <em>dynamic</em> and <em>explicit</em> mapping.</p>
+<hr />
+<h2 id="dynamic-mapping">Dynamic mapping</h2>
+<p>Elasticsearch use dynamic mapping automatically, when you don't use explicit mapping. </p>
+<h2 id="explicit-mapping">Explicit mapping</h2>
+<p>This mapping allows you to choose how to define the mapping definitions. You can decide which fields contains which data types. 
+Explicit mapping is useful, because you know your data best.
+Field mappings can be described when you create a new index and also can be added to existing indices. </p>
 
 
 
