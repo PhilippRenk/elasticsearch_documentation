@@ -82,6 +82,9 @@ theme:
     - navigation.instant
     - navigation.sections
     - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant.preview
     - search.highlight
     - search.suggest
   palette:
@@ -98,4 +101,20 @@ theme:
 repo_url: https://github.com/PhilippRenk/elasticsearch_documentation
 repo_name: PhilippRenk/elasticsearch_documentation
 # Navigation definition
-#nav:
+nav:
+  - Home: index.md
+  - Installation:
+      - "Useful commands": "Installation/00_useful commands.md"
+      - "Installation Elasticsearch": "Installation/01_1_installation_elasticsearch.md"
+      - "Installation Kibana": "Installation/01_2_Installation_kibana.md"
+      - "Install Logstash": "Installation/01_3_installation_logstash.md"
+      - "Install Filebeat": "Installation/01_4_installation_beats.md"
+      - "Installation Elasticsearch - Three Node Cluster": "Installation/02_1_Installation_three_node_cluster.md"
+  - Elasticsearch:
+    - "Aggregation": "Elasticsearch/Aggregation.md"
+    - "Mapping": "Elasticsearch/Mapping.md"
+  - Mitarbeit:
+    - "Mitarbeit an der Dokumentation": "Mitarbeit/00_Anmeldung_Dokumentation.md"
+  - Lab:
+    - "Zugang zur Labumgebung": "Lab/00_Access.md"
+
