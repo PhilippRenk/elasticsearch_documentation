@@ -102,7 +102,7 @@ repo_url: https://github.com/PhilippRenk/elasticsearch_documentation
 repo_name: PhilippRenk/elasticsearch_documentation
 # Navigation definition
 nav:
-  - Home: index.md
+  - Home: "index.md"
   - Installation:
       - "Useful commands": "Installation/00_useful commands.md"
       - "Installation Elasticsearch": "Installation/01_1_installation_elasticsearch.md"
