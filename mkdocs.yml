@@ -115,6 +115,4 @@ nav:
     - "Mapping": "Elasticsearch/Mapping.md"
   - Mitarbeit:
     - "Mitarbeit an der Dokumentation": "Mitarbeit/00_Anmeldung_Dokumentation.md"
-  - Lab:
-    - "Zugang zur Labumgebung": "Lab/00_Access.md"
 
